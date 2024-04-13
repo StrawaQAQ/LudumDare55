@@ -12,11 +12,14 @@ public class KeyboradListen : MonoBehaviour
     private bool isSequenceStarted = false; // 标记是否已经开始检查序列  
     private PlayerControl pc;
     private int i;
+    public float MaxTime;
+    public float escapTime;
     void Start()
     {
         showKeys = new List<ShowKey>();
         pc = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
         i = 0;
+        escapTime = 0f;
         foreach (var key in keys)
         {
             showKeys.Add(key.GetComponent<ShowKey>());
@@ -34,6 +37,7 @@ public class KeyboradListen : MonoBehaviour
 
         if (isSequenceStarted)
         {
+            
             KeyTag();
             //Debug.Log(inputSequence.Count);
             if (inputSequence.Count >= 4)
@@ -41,6 +45,10 @@ public class KeyboradListen : MonoBehaviour
                 Check();
             }
         }
+    }
+    private void FixedUpdate()
+    {
+        Timelimit();
     }
 
     void KeyTag()
@@ -134,7 +142,21 @@ public class KeyboradListen : MonoBehaviour
         correctSequence.Clear();
         pc.enableCall = false;
         pc.enableMove = true;
+        escapTime = 0f;
         gameObject.SetActive(false);
         i = 0;
+    }
+    void Timelimit()
+    {
+        if (escapTime >= MaxTime)
+        {
+            ResetSequence();
+            Debug.Log("YES");
+        }
+        else
+        {
+            escapTime += Time.deltaTime;
+
+        }
     }
 }
