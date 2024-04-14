@@ -33,4 +33,10 @@ public class AllEnemy : MonoBehaviour
             anim.Play("Dead");
         }
     }
+
+    public string getCurrentClipInfo() // 获取当前执行的动画
+    {
+        AnimatorClipInfo[] m_CurrentClipInfo = anim.GetCurrentAnimatorClipInfo(0);
+        return m_CurrentClipInfo[0].clip.name;
+    }
 }

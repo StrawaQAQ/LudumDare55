@@ -11,12 +11,15 @@ public class WildSingerMov : AllEnemy
     public float stopRange;
     private Transform player;
     private int a = 1;
+    private int turningRight = 1;
+    private SpriteRenderer sr;
 
     void Awake()
     {
         base.Awake();
         a = 1;
         player = GameObject.FindWithTag("Player").transform;
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void ChasePlayer()
@@ -53,6 +56,24 @@ public class WildSingerMov : AllEnemy
                 // else if(condition == "idle")
             }
         }
+        if(rb.velocity.x < 0 && turningRight == 1)  turnAround();
+        else if(rb.velocity.x > 0 && turningRight == -1) turnAround();
+    }
+
+    void turnAround()
+    {
+        // Debug.Log("你好");
+        if(turningRight == 1)
+        {
+            turningRight = -1;
+            sr.flipX = true;
+        }else{
+            turningRight = 1;
+            sr.flipX = false;
+        }
+        // transform.localScale = new Vector3(turningRight, 1, 0);
+        // DamageRange.transform.localScale = new Vector3(turningRight, 1, 0);
+        
     }
 
     void addVelocity()
