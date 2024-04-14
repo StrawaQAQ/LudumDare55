@@ -7,6 +7,8 @@ public class WildSingerMov : AllEnemy
     public EnemyVision enemyVision;
     [Header("音波预制体")]
     public GameObject audioWave;
+    [Header("声音")]
+    public AudioSource sound;
     [Header("在距离玩家多少距离的地方展开攻击")]
     public float stopRange;
     private Transform player;
@@ -35,6 +37,11 @@ public class WildSingerMov : AllEnemy
             condition = "hit";
             anim.Play("Hit");
         }
+    }
+
+    void PlaySound()
+    {
+        sound.Play();
     }
 
     // Update is called once per frame

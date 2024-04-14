@@ -15,6 +15,7 @@ public class ExpertMov : AllEnemy
     private int a = 1;
     private int turningRight = 1;
     private SpriteRenderer sr;
+    public AudioSource asa;
 
     void Awake()
     {
@@ -60,6 +61,16 @@ public class ExpertMov : AllEnemy
         }
         if(rb.velocity.x < 0 && turningRight == 1)  turnAround();
         else if(rb.velocity.x > 0 && turningRight == -1) turnAround();
+    }
+
+    void AsPlay()
+    {
+        asa.Play();
+    }
+
+    void AsStop()
+    {
+        asa.Pause();
     }
 
     void turnAround()
