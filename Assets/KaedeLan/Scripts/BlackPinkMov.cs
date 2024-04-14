@@ -14,6 +14,7 @@ public class BlackPinkMov : AllEnemy
     private SpriteRenderer sr;
     public float tempRec;
     public AudioSource walkSE;
+    public AudioSource hitSE;
 
     void Awake()
     {
@@ -45,6 +46,12 @@ public class BlackPinkMov : AllEnemy
     void stopSE()
     {
         walkSE.Stop();
+    }
+
+    void playHitSE()
+    {
+        hitSE.pitch = Random.Range(0.7f, 1.2f);
+        hitSE.Play();
     }
 
     // Update is called once per frame

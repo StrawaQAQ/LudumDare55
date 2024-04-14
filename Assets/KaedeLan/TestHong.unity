@@ -916,6 +916,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuitarHero
       objectReference: {fileID: 0}
+    - target: {fileID: 478734232046540256, guid: 6132842ce144d5e43864efbdeeb75b46, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6132842ce144d5e43864efbdeeb75b46, type: 3}
 --- !u!1001 &533965114565880757
@@ -975,7 +979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 533965113375501749, guid: bad67c36b00ae0746950eb4decbde49c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 533965113375501751, guid: bad67c36b00ae0746950eb4decbde49c, type: 3}
       propertyPath: walkSE
