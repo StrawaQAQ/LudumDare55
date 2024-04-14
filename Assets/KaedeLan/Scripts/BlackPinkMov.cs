@@ -10,11 +10,16 @@ public class BlackPinkMov : AllEnemy
     [Header("攻击碰撞体")]
     public GameObject attackP;
     private Transform player;
+    public int turningRight = 1;
+    private SpriteRenderer sr;
+    public float tempRec;
+    public AudioSource walkSE;
 
     void Awake()
     {
         base.Awake();
         player = GameObject.FindWithTag("Player").transform;
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void ChasePlayer()
@@ -32,6 +37,16 @@ public class BlackPinkMov : AllEnemy
         }
     }
 
+    void playWalkSE()
+    {
+        walkSE.Play();
+    }
+
+    void stopSE()
+    {
+        walkSE.Stop();
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -44,12 +59,35 @@ public class BlackPinkMov : AllEnemy
                 anim.Play("Chase");
             }else if(!enemyVision.inRange && (condition=="dash"))
             {
+                walkSE.Pause();
                 condition = "idle";
                 anim.Play("Idle");
             }else{
                 if(condition == "dash") ChasePlayer();
             }
         }
+        if(condition != "idle")
+        {
+            if(transform.position.x - player.position.x > 0.3f && turningRight == 1)  turnAround();
+            else if(player.position.x - transform.position.x > 0.3f && turningRight == -1) turnAround();
+        }
+        
+    }
+
+    void turnAround()
+    {
+        // Debug.Log("你好");
+        if(turningRight == 1)
+        {
+            turningRight = -1;
+            sr.flipX = true;
+        }else{
+            turningRight = 1;
+            sr.flipX = false;
+        }
+        // transform.localScale = new Vector3(turningRight, 1, 0);
+        attackP.transform.localScale = new Vector3(turningRight, 1, 0);
+        
     }
 
     void toIdle()
