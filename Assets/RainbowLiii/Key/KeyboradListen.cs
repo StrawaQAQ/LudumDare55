@@ -184,6 +184,7 @@ public class KeyboradListen : MonoBehaviour
         if (escapTime >= MaxTime)
         {
             ResetSequence();
+            BadBuff();
             //Debug.Log("YES");
         }
         else

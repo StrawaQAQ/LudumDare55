@@ -26,6 +26,10 @@ public class GameListenner : MonoBehaviour
         if(GameTime >= temptime)
         {
             MaxKey++;
+            if(MaxKey > 8)
+            {
+                MaxKey = 8;
+            }
             temptime += btwtime;
         }
     }
