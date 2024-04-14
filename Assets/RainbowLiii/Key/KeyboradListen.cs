@@ -77,7 +77,7 @@ public class KeyboradListen : MonoBehaviour
 
     void KeyTag()
     {
-        Debug.Log(1);
+        //Debug.Log(1);
         if (Input.GetKeyDown(KeyCode.W))
         {
             inputSequence.Add(1);
