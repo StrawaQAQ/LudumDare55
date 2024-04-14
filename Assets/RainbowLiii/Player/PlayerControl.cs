@@ -20,6 +20,10 @@ public class PlayerControl : MonoBehaviour,getDamage
     [Header("¼üÅÌ¼àÌý")]
     public GameObject kl;
     private KeyboradListen Kl;
+    public CapsuleCollider2D cap;
+    public int damage;
+    public float MaxTime;
+    public Vector2 attackRange;
     void Start()
     {
         input = new PlayerInput();
@@ -27,8 +31,10 @@ public class PlayerControl : MonoBehaviour,getDamage
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         Kl = kl.GetComponent<KeyboradListen>();
+        cap = GetComponent<CapsuleCollider2D>();
         enableMove = true;
         enableCall = false;
+        attackRange = new Vector2(4f, 2f);
     }
     void FixedUpdate()
     {

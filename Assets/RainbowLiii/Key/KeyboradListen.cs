@@ -23,12 +23,15 @@ public class KeyboradListen : MonoBehaviour
     private GameListenner GL;
     [Header("Key值增加时间间隔")]
     public float BtwTime;
-    [HideInInspector]public float tempTime;
+    [HideInInspector] public float tempTime;
+    public GameObject buff;
+    private BuffSystem buffSystem;
     void Start()
     {
         showKeys = new List<ShowKey>();
         pc = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
         GL = GameListenner.GetComponent<GameListenner>();
+        buffSystem = buff.GetComponent<BuffSystem>();
         MaxKey = 3;
         tempTime = BtwTime;
         i = 0;
@@ -44,15 +47,19 @@ public class KeyboradListen : MonoBehaviour
 
     void Update()
     {
+        if (MaxKey <= 7 && !pc.enableCall)
+        {
+            TimeListenner();
+        }
         if (!isSequenceStarted && Input.anyKeyDown && pc.enableCall && pc.getNum >= GL.MaxKey)
         {
             isSequenceStarted = true;
-            pc.getNum -= MaxKey;
+
         }
 
         if (isSequenceStarted)
         {
-            
+
             KeyTag();
             //Debug.Log(inputSequence.Count);
             if (i >= MaxKey)
@@ -60,34 +67,34 @@ public class KeyboradListen : MonoBehaviour
                 Check();
             }
         }
-        if (MaxKey <= 7 && !pc.enableCall)
-        {
-            TimeListenner();
-        }
+
     }
     private void FixedUpdate()
     {
-        Timelimit();
+        if (pc.enableCall)
+            Timelimit();
     }
 
     void KeyTag()
     {
+        Debug.Log(1);
         if (Input.GetKeyDown(KeyCode.W))
         {
-           inputSequence.Add(1);
+            inputSequence.Add(1);
             correctSequence.Add(showKeys[i].num);
             if (inputSequence[i] == correctSequence[i])
             {
-               // Debug.Log("按键1被按下，添加到序列中。");
-               // Debug.Log(correctSequence.Count);
+                // Debug.Log("按键1被按下，添加到序列中。");
+                // Debug.Log(correctSequence.Count);
                 i++;
             }
             else
             {
                 Debug.Log("玩家没有正确地按顺序按键。");
+                BadBuff();
                 ResetSequence();
             }
-                
+
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
@@ -95,13 +102,14 @@ public class KeyboradListen : MonoBehaviour
             correctSequence.Add(showKeys[i].num);
             if (inputSequence[i] == correctSequence[i])
             {
-               // Debug.Log("按键2被按下，添加到序列中。");
-               // Debug.Log(correctSequence.Count);
+                // Debug.Log("按键2被按下，添加到序列中。");
+                // Debug.Log(correctSequence.Count);
                 i++;
             }
             else
-            { 
+            {
                 Debug.Log("玩家没有正确地按顺序按键。");
+                BadBuff();
                 ResetSequence();
             }
         }
@@ -111,13 +119,14 @@ public class KeyboradListen : MonoBehaviour
             correctSequence.Add(showKeys[i].num);
             if (inputSequence[i] == correctSequence[i])
             {
-               // Debug.Log("按键3被按下，添加到序列中。");
-               // Debug.Log(correctSequence.Count);
+                // Debug.Log("按键3被按下，添加到序列中。");
+                // Debug.Log(correctSequence.Count);
                 i++;
             }
             else
             {
                 Debug.Log("玩家没有正确地按顺序按键。");
+                BadBuff();
                 ResetSequence();
             }
         }
@@ -127,13 +136,14 @@ public class KeyboradListen : MonoBehaviour
             correctSequence.Add(showKeys[i].num);
             if (inputSequence[i] == correctSequence[i])
             {
-               // Debug.Log("按键4被按下，添加到序列中。");
-               // Debug.Log(correctSequence.Count);
+                // Debug.Log("按键4被按下，添加到序列中。");
+                // Debug.Log(correctSequence.Count);
                 i++;
             }
             else
             {
                 Debug.Log("玩家没有正确地按顺序按键。");
+                BadBuff();
                 ResetSequence();
             }
         }
@@ -141,16 +151,18 @@ public class KeyboradListen : MonoBehaviour
 
     void Check()
     {
-        
+
         if (inputSequence.SequenceEqual(correctSequence))
         {
-            Debug.Log("玩家正确地按顺序按键了！");
+            //Debug.Log("玩家正确地按顺序按键了！");
             BulletChatController.instance.AddBulletChat(name, "睿睿你是大明星");
+            ShowBuff();
             ResetSequence();
         }
         else
         {
             Debug.Log("玩家没有正确地按顺序按键。");
+            BadBuff();
             ResetSequence();
         }
     }
@@ -163,7 +175,8 @@ public class KeyboradListen : MonoBehaviour
         pc.enableCall = false;
         pc.enableMove = true;
         escapTime = 0f;
-        gameObject.SetActive(false);
+        pc.getNum = 0;
+        //gameObject.SetActive(false);
         i = 0;
     }
     void Timelimit()
@@ -171,7 +184,7 @@ public class KeyboradListen : MonoBehaviour
         if (escapTime >= MaxTime)
         {
             ResetSequence();
-            Debug.Log("YES");
+            //Debug.Log("YES");
         }
         else
         {
@@ -181,11 +194,65 @@ public class KeyboradListen : MonoBehaviour
     }
     void TimeListenner()
     {
-        if(GL.GameTime >= tempTime)
+        if (GL.GameTime >= tempTime)
         {
             keys[MaxKey].SetActive(true);
             MaxKey += 1;
             tempTime += BtwTime;
+        }
+    }
+    void ShowBuff()
+    {
+        int randomnum = Random.Range(0, 6);
+        //int randomnum = 5;
+        if (randomnum == 0)
+        {
+            buffSystem.AddDamage();
+        }
+        else if (randomnum == 1)
+        {
+            buffSystem.AddSpeed();
+        }
+        else if (randomnum == 2)
+        {
+            buffSystem.AddHealth();
+        }
+        else if (randomnum == 3)
+        {
+            buffSystem.Invincible();
+        }
+        else if (randomnum == 4)
+        {
+            buffSystem.ReduceTime();
+        }
+        else if (randomnum == 5)
+        {
+            buffSystem.Summoning();
+        }
+    }
+    void BadBuff()
+    {
+        int rannum = Random.Range(0, 5);
+        //int rannum = 3;
+        if (rannum == 0)
+        {
+            buffSystem.ReduceSpeed();
+        }
+        else if (rannum == 1)
+        {
+            buffSystem.AddTime();
+        }
+        else if (rannum == 2)
+        {
+            buffSystem.ReduceDamage();
+        }
+        else if (rannum == 3)
+        {
+            buffSystem.ReduceTeam();
+        }
+        else if (rannum == 4)
+        {
+            buffSystem.CallEnemy();
         }
     }
 }

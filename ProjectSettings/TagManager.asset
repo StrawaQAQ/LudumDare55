@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnemyA
   - EnemyB
+  - Summoning
   layers:
   - Default
   - TransparentFX

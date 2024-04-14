@@ -6,31 +6,38 @@ public class PlayerAttack : MonoBehaviour
 {
     public GameObject Microphone;
     private MicrophoneInput MI;
-    public CircleCollider2D circle;
+    public CapsuleCollider2D cap;
+    private PlayerControl pc;
     public float MaxRange;
     public float MaxTime;
     public float esctime;
+    public int damage;
+    public Vector2 Range;
     // Start is called before the first frame update
     void Start()
     {
         MI = Microphone.GetComponent<MicrophoneInput>();
-        circle = GetComponent<CircleCollider2D>();
+        cap = GetComponent<CapsuleCollider2D>();
+        pc = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
         esctime = MaxTime;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(esctime >= MaxTime)
+        MaxTime = pc.MaxTime;
+        damage = pc.damage;
+        Range = pc.attackRange;
+        if(esctime >= MaxTime && MI.realVolume > 1f)
         {
-            circle.radius = MI.realVolume / MaxRange;
-            circle.enabled = true;
+            cap.size = Range;
+            cap.enabled = true;
             esctime = 0f;
         }
         else
         {
             esctime += Time.deltaTime;
-            circle.enabled = false;
+            cap.enabled = false;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
