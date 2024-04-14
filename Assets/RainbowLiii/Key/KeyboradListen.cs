@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KeyboradListen : MonoBehaviour
 {
@@ -26,6 +28,8 @@ public class KeyboradListen : MonoBehaviour
     [HideInInspector] public float tempTime;
     public GameObject buff;
     private BuffSystem buffSystem;
+    public Sprite[] sprites;
+    public Sprite[] backs;
     void Start()
     {
         showKeys = new List<ShowKey>();
@@ -82,8 +86,11 @@ public class KeyboradListen : MonoBehaviour
         {
             inputSequence.Add(1);
             correctSequence.Add(showKeys[i].num);
+            showKeys[i].keyW.GetComponent<Image>().sprite = sprites[0];
             if (inputSequence[i] == correctSequence[i])
             {
+                
+                showKeys[i].keyW.GetComponent<Image>().color = Color.green;
                 // Debug.Log("按键1被按下，添加到序列中。");
                 // Debug.Log(correctSequence.Count);
                 i++;
@@ -91,6 +98,7 @@ public class KeyboradListen : MonoBehaviour
             else
             {
                 Debug.Log("玩家没有正确地按顺序按键。");
+                showKeys[i].keyW.GetComponent<Image>().color = Color.red;
                 BadBuff();
                 ResetSequence();
             }
@@ -100,8 +108,10 @@ public class KeyboradListen : MonoBehaviour
         {
             inputSequence.Add(2);
             correctSequence.Add(showKeys[i].num);
+            showKeys[i].keyA.GetComponent<Image>().sprite = sprites[1];
             if (inputSequence[i] == correctSequence[i])
             {
+                showKeys[i].keyA.GetComponent<Image>().color = Color.green;
                 // Debug.Log("按键2被按下，添加到序列中。");
                 // Debug.Log(correctSequence.Count);
                 i++;
@@ -109,6 +119,7 @@ public class KeyboradListen : MonoBehaviour
             else
             {
                 Debug.Log("玩家没有正确地按顺序按键。");
+                showKeys[i].keyA.GetComponent<Image>().color = Color.red;
                 BadBuff();
                 ResetSequence();
             }
@@ -117,8 +128,10 @@ public class KeyboradListen : MonoBehaviour
         {
             inputSequence.Add(3);
             correctSequence.Add(showKeys[i].num);
+            showKeys[i].keyS.GetComponent<Image>().sprite = sprites[2];
             if (inputSequence[i] == correctSequence[i])
             {
+                showKeys[i].keyS.GetComponent<Image>().color = Color.green;
                 // Debug.Log("按键3被按下，添加到序列中。");
                 // Debug.Log(correctSequence.Count);
                 i++;
@@ -126,6 +139,7 @@ public class KeyboradListen : MonoBehaviour
             else
             {
                 Debug.Log("玩家没有正确地按顺序按键。");
+                showKeys[i].keyS.GetComponent<Image>().color = Color.red;
                 BadBuff();
                 ResetSequence();
             }
@@ -134,8 +148,10 @@ public class KeyboradListen : MonoBehaviour
         {
             inputSequence.Add(4);
             correctSequence.Add(showKeys[i].num);
+            showKeys[i].keyD.GetComponent<Image>().sprite = sprites[3];
             if (inputSequence[i] == correctSequence[i])
             {
+                showKeys[i].keyD.GetComponent<Image>().color = Color.green;
                 // Debug.Log("按键4被按下，添加到序列中。");
                 // Debug.Log(correctSequence.Count);
                 i++;
@@ -143,6 +159,7 @@ public class KeyboradListen : MonoBehaviour
             else
             {
                 Debug.Log("玩家没有正确地按顺序按键。");
+                showKeys[i].keyD.GetComponent<Image>().color = Color.red;
                 BadBuff();
                 ResetSequence();
             }
@@ -176,6 +193,17 @@ public class KeyboradListen : MonoBehaviour
         pc.enableMove = true;
         escapTime = 0f;
         pc.getNum = 0;
+        foreach(var showkey in showKeys)
+        {
+            showkey.keyW.GetComponent<Image>().sprite = backs[0];
+            showkey.keyA.GetComponent<Image>().sprite = backs[1];
+            showkey.keyS.GetComponent<Image>().sprite = backs[2];
+            showkey.keyD.GetComponent<Image>().sprite = backs[3];
+            showkey.keyW.GetComponent<Image>().color = Color.white;
+            showkey.keyA.GetComponent<Image>().color = Color.white;
+            showkey.keyS.GetComponent<Image>().color = Color.white;
+            showkey.keyD.GetComponent<Image>().color = Color.white;
+        }
         //gameObject.SetActive(false);
         i = 0;
     }
