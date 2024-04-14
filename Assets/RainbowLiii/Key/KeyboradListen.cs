@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class KeyboradListen : MonoBehaviour
 {
+    [Header("按键列表")]
     public List<GameObject> keys; // 按键列表  
     private List<ShowKey> showKeys; // ShowKey组件列表  
     private List<float> correctSequence; // 正确的按键顺序  
@@ -12,12 +13,24 @@ public class KeyboradListen : MonoBehaviour
     private bool isSequenceStarted = false; // 标记是否已经开始检查序列  
     private PlayerControl pc;
     private int i;
+    [Header("qte限制时间")]
     public float MaxTime;
     public float escapTime;
+    [Header("最大Key值")]
+    public int MaxKey = 3;
+    [Header("获取游戏监听器")]
+    public GameObject GameListenner;
+    private GameListenner GL;
+    [Header("Key值增加时间间隔")]
+    public float BtwTime;
+    [HideInInspector]public float tempTime;
     void Start()
     {
         showKeys = new List<ShowKey>();
         pc = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
+        GL = GameListenner.GetComponent<GameListenner>();
+        MaxKey = 3;
+        tempTime = BtwTime;
         i = 0;
         escapTime = 0f;
         foreach (var key in keys)
@@ -26,13 +39,15 @@ public class KeyboradListen : MonoBehaviour
         }
         correctSequence = new List<float>();
         // 假设 ShowKey 组件的 num 属性是按键的正确顺序 
+        Debug.Log(keys.Count);
     }
 
     void Update()
     {
-        if (!isSequenceStarted && Input.anyKeyDown && pc.enableCall)
+        if (!isSequenceStarted && Input.anyKeyDown && pc.enableCall && pc.getNum >= GL.MaxKey)
         {
             isSequenceStarted = true;
+            pc.getNum -= MaxKey;
         }
 
         if (isSequenceStarted)
@@ -40,10 +55,14 @@ public class KeyboradListen : MonoBehaviour
             
             KeyTag();
             //Debug.Log(inputSequence.Count);
-            if (inputSequence.Count >= 4)
+            if (i >= MaxKey)
             {
                 Check();
             }
+        }
+        if (MaxKey <= 7 && !pc.enableCall)
+        {
+            TimeListenner();
         }
     }
     private void FixedUpdate()
@@ -126,6 +145,7 @@ public class KeyboradListen : MonoBehaviour
         if (inputSequence.SequenceEqual(correctSequence))
         {
             Debug.Log("玩家正确地按顺序按键了！");
+            BulletChatController.instance.AddBulletChat(name, "睿睿你是大明星");
             ResetSequence();
         }
         else
@@ -157,6 +177,15 @@ public class KeyboradListen : MonoBehaviour
         {
             escapTime += Time.deltaTime;
 
+        }
+    }
+    void TimeListenner()
+    {
+        if(GL.GameTime >= tempTime)
+        {
+            keys[MaxKey].SetActive(true);
+            MaxKey += 1;
+            tempTime += BtwTime;
         }
     }
 }
