@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: 0ecfe24634f31934caee885724685be7
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_0"
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 5
+        width: 21
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9384648b663ba9947985fa6d027652b9
+      internalID: 1557780048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_1"
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 5
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 266a24763e95b274cb13339b1cfe75b1
+      internalID: 1389702500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_2"
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f44762fe9a13a384c97a6a98cf3a5f74
+      internalID: -1828966822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_4"
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7488674220a6cce4cb6341bbea580354
+      internalID: -1303352821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_6"
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f534eb75f01654988be90b7deaefd4
+      internalID: 700479911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_8"
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9beb5d25a16baf347992c3609607b8ac
+      internalID: 788192765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_10"
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc038d2fd3d398c44bb99f918c492f69
+      internalID: 636451374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_12"
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b29e53180929eea42937285214a32b6a
+      internalID: 2107763308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_14"
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a8ffcc84400b2342bbcfdc6543ba03f
+      internalID: -2118106202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_16"
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2363280f665c2a43aaa838d0689c28b
+      internalID: -1861272542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_18"
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef39e5c3ea4bcc4c9045cb107136f2f
+      internalID: 1153766910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_20"
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f93e2cddeea935244a3f76913ff25eb8
+      internalID: 506309418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_22"
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e101baa4cda28c45aeb458ca388d3e9
+      internalID: 2062345567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_24"
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21fa17c9e0cb3841aad51807943e5b9
+      internalID: -1472869168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_26"
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e44f217e1eb23874081dd7ddd7b6361b
+      internalID: -2142904622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_28"
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f602a6b82426c334e9f7484a7ebcf9b0
+      internalID: 1319871536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_30"
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8784db1174e472b4b9199ca30ad97e30
+      internalID: 1865310600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u6311\u5254\u4E13\u5BB6_judge_32"
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 5
+        width: 24
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 562228d6a53072341b558aaecd081dae
+      internalID: 754385898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      "\u6311\u5254\u4E13\u5BB6_judge_19": -298286074
+      "\u6311\u5254\u4E13\u5BB6_judge_27": -862571543
+      "\u6311\u5254\u4E13\u5BB6_judge_30": 1865310600
+      "\u6311\u5254\u4E13\u5BB6_judge_6": 700479911
+      "\u6311\u5254\u4E13\u5BB6_judge_24": -1472869168
+      "\u6311\u5254\u4E13\u5BB6_judge_11": -1755609166
+      "\u6311\u5254\u4E13\u5BB6_judge_33": 310759942
+      "\u6311\u5254\u4E13\u5BB6_judge_1": 1389702500
+      "\u6311\u5254\u4E13\u5BB6_judge_12": 2107763308
+      "\u6311\u5254\u4E13\u5BB6_judge_16": -1861272542
+      "\u6311\u5254\u4E13\u5BB6_judge_14": -2118106202
+      "\u6311\u5254\u4E13\u5BB6_judge_15": -1119271399
+      "\u6311\u5254\u4E13\u5BB6_judge_8": 788192765
+      "\u6311\u5254\u4E13\u5BB6_judge_22": 2062345567
+      "\u6311\u5254\u4E13\u5BB6_judge_17": -1100589282
+      "\u6311\u5254\u4E13\u5BB6_judge_21": 818272339
+      "\u6311\u5254\u4E13\u5BB6_judge_0": 1557780048
+      "\u6311\u5254\u4E13\u5BB6_judge_3": -341829404
+      "\u6311\u5254\u4E13\u5BB6_judge_25": -2087144452
+      "\u6311\u5254\u4E13\u5BB6_judge_18": 1153766910
+      "\u6311\u5254\u4E13\u5BB6_judge_5": 896872135
+      "\u6311\u5254\u4E13\u5BB6_judge_23": -172090569
+      "\u6311\u5254\u4E13\u5BB6_judge_9": 1586779579
+      "\u6311\u5254\u4E13\u5BB6_judge_28": 1319871536
+      "\u6311\u5254\u4E13\u5BB6_judge_29": 624383611
+      "\u6311\u5254\u4E13\u5BB6_judge_31": -1029118620
+      "\u6311\u5254\u4E13\u5BB6_judge_2": -1828966822
+      "\u6311\u5254\u4E13\u5BB6_judge_32": 754385898
+      "\u6311\u5254\u4E13\u5BB6_judge_10": 636451374
+      "\u6311\u5254\u4E13\u5BB6_judge_4": -1303352821
+      "\u6311\u5254\u4E13\u5BB6_judge_7": -290365709
+      "\u6311\u5254\u4E13\u5BB6_judge_20": 506309418
+      "\u6311\u5254\u4E13\u5BB6_judge_26": -2142904622
+      "\u6311\u5254\u4E13\u5BB6_judge_13": -1117368369
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
