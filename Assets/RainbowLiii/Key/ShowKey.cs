@@ -21,7 +21,7 @@ public class ShowKey : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (pc.enableCall)
+        if (pc.enableCall && gameObject.activeSelf)
         {
             keyShow.SetActive(true);
             num = keyNum;

@@ -3,22 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerControl : MonoBehaviour,getDamage
 {
-    public Animator anim;
-    Rigidbody2D rb;
+    [HideInInspector]public Animator anim;
+    [Header("生命值")]
+    public float health;
+    private Rigidbody2D rb;
     Vector2 moveInput;
     public PlayerInput input;
+    [Header("移动速度")]
     public float speed;
     public bool enableMove;
+    [Header("拾取的item数量")]
+    public int getNum;
     public bool enableCall;
+    [Header("键盘监听")]
     public GameObject kl;
+    private KeyboradListen Kl;
     void Start()
     {
         input = new PlayerInput();
         input.Enable();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        Kl = kl.GetComponent<KeyboradListen>();
         enableMove = true;
         enableCall = false;
     }
@@ -51,7 +59,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (enableMove)
+            if (enableMove && getNum >= Kl.MaxKey)
             {
                 enableMove = false;
                 enableCall = true;
@@ -63,6 +71,14 @@ public class PlayerControl : MonoBehaviour
                 enableCall = false;
                 kl.SetActive(false);
             }
+        }
+    }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if(health < 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

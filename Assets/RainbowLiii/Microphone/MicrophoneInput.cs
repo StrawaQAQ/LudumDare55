@@ -6,8 +6,10 @@ public class MicrophoneInput : MonoBehaviour
 {
     [SerializeField]
     public float[] volume;
+    [Header("获取的麦克风音量")]
     public float realVolume;//获取的麦克风音量
     private AudioClip[] micRecord;
+    [Header("麦克风设备")]
     public string[] Devices;
     private void Awake()
     {
