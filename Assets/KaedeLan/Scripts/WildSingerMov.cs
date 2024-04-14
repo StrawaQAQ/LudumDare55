@@ -63,8 +63,11 @@ public class WildSingerMov : AllEnemy
                 // else if(condition == "idle")
             }
         }
-        if(rb.velocity.x < 0 && turningRight == 1)  turnAround();
-        else if(rb.velocity.x > 0 && turningRight == -1) turnAround();
+        if(condition != "idle")
+        {
+            if(transform.position.x - player.position.x > 0.3f && turningRight == 1)  turnAround();
+            else if(player.position.x - transform.position.x > 0.3f && turningRight == -1) turnAround();
+        }
     }
 
     void turnAround()

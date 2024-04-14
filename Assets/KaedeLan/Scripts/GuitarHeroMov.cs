@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExpertMov : AllEnemy
+public class GuitarHeroMov : AllEnemy
 {
     public EnemyVision enemyVision;
-    [Header("陨石预制体")]
-    public GameObject audioWave;
+    [Header("子弹预制体")]
+    public GameObject[] audioWave;
     [Header("在距离玩家多少距离的地方展开攻击")]
     public float stopRange;
-    [Header("攻击范围")]
+    [Header("来到玩家多近的距离")]
     public Vector2 hitRange = new Vector2 (4f,4f);
     private Transform player;
     private int a = 1;
     public int turningRight = 1;
     private SpriteRenderer sr;
     public AudioSource asa;
+    private Vector2 destination;
 
     void Awake()
     {
@@ -28,16 +29,26 @@ public class ExpertMov : AllEnemy
     void ChasePlayer()
     {
         player = GameObject.FindWithTag("Player").transform;
+        RollDest();
+    }
+
+    void Approach()
+    {
         float step = speed * Time.deltaTime;
 
         // move sprite towards the target location
-        transform.position = Vector2.MoveTowards(transform.position, player.position, step);
+        transform.position = Vector2.MoveTowards(transform.position, destination, step);
 
-        if(Mathf.Abs(transform.position.x - player.position.x) <= stopRange && Mathf.Abs(transform.position.y - player.position.y) <= stopRange)
+        if(Mathf.Abs(transform.position.x - destination.x) <= stopRange && Mathf.Abs(transform.position.y - destination.y) <= stopRange)
         {
             condition = "hit";
             anim.Play("Hit");
         }
+    }
+
+    void RollDest()
+    {
+        destination = new Vector2(player.position.x+Random.Range(0.2f,hitRange.x),player.position.y+Random.Range(0.2f,hitRange.y));
     }
 
     // Update is called once per frame
@@ -49,25 +60,27 @@ public class ExpertMov : AllEnemy
             if(enemyVision.inRange && (condition=="idle"))
             {
                 condition = "dash";
+                ChasePlayer();
                 anim.Play("Chase");
-            }else if(!enemyVision.inRange && (condition=="dash"))
+            }else if(!enemyVision.inRange && (condition!="idle"))
             {
                 condition = "idle";
                 anim.Play("Idle");
             }else{
-                if(condition == "dash") ChasePlayer();
+                if(condition == "dash") Approach();
                 // else if(condition == "idle")
             }
         }
         if(condition != "idle")
         {
-            if(transform.position.x - player.position.x > 0.3f && turningRight == 1)  turnAround();
-            else if(player.position.x - transform.position.x > 0.3f && turningRight == -1) turnAround();
+            if(transform.position.x - player.position.x > 0.1f && turningRight == 1)  turnAround();
+            else if(player.position.x - transform.position.x > 0.1f && turningRight == -1) turnAround();
         }
     }
 
     void AsPlay()
     {
+        asa.pitch = Random.Range(0.7f, 1.2f);
         asa.Play();
     }
 
@@ -109,13 +122,18 @@ public class ExpertMov : AllEnemy
         {
             anim.Play("Idle");
             condition = "idle";
+        }else{
+            condition = "dash";
+            ChasePlayer();
+            anim.Play("Chase");
         }
     }
 
     void Hit()
     {
-        float k = Random.Range(0,1f);
-        if(k < 0.5f)    Instantiate(audioWave, new Vector3(transform.position.x+Random.Range(0.2f,hitRange.x),transform.position.y+Random.Range(0.2f,hitRange.y),transform.position.z), transform.rotation);
-        else            Instantiate(audioWave, new Vector3(transform.position.x-Random.Range(0.2f,hitRange.x),transform.position.y-Random.Range(0.2f,hitRange.y),transform.position.z), transform.rotation);
+        for(int i=0; i<8; i++)
+        {
+            Instantiate(audioWave[i], transform.position, transform.rotation);
+        }
     }
 }

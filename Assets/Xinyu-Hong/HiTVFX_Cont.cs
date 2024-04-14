@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class HiTVFX_Cont : MonoBehaviour
 {
-   public float speed = 0f;
+   public Vector2 speed = new Vector2(0f,0f);
+   public bool magicButton;
    private float CD = 3f;
    private Rigidbody2D rb;
 
@@ -15,7 +16,7 @@ public class HiTVFX_Cont : MonoBehaviour
 
    void Awake()
    {
-      if(speed != 0f)
+      if(speed.x != 0f || speed.y != 0f)
       {
          rb = GetComponent<Rigidbody2D>();
       }
@@ -23,11 +24,10 @@ public class HiTVFX_Cont : MonoBehaviour
 
    void FixedUpdate()
    {
-      if(speed != 0f)
+      if(magicButton)
       {
          CD -= Time.fixedDeltaTime;
-         rb.velocity = new Vector2(speed*CD*2, 0f);
-
+         rb.velocity = new Vector2(speed.x*CD*2, speed.y*CD*2);
       }
    }
 }

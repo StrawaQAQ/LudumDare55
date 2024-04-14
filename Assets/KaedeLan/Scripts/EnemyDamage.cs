@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
+    public bool magicButton = false;
+    public bool debugMode = false;
+    public GameObject audioWave;
     public Collider2D coll;
     public float damage;
     public bool hitPlayer = false;
@@ -41,6 +44,13 @@ public class EnemyDamage : MonoBehaviour
     {
         if(k == 0)
         {
+            if(debugMode)
+            {
+                if(magicButton) {
+                    Instantiate(audioWave, transform.position, transform.rotation);
+                    Destroy(gameObject);
+                }
+            }
             Debug.Log("哦哈哟");
             PlayerControl a = other.GetComponent<PlayerControl>();
             if (a != null && other.tag == "Player")
@@ -48,6 +58,10 @@ public class EnemyDamage : MonoBehaviour
                 Debug.Log("学妹");
                 a.TakeDamage(pow);
                 k ++;
+                if(magicButton) {
+                    Instantiate(audioWave, transform.position, transform.rotation);
+                    Destroy(gameObject);
+                }
             }
         }
 
