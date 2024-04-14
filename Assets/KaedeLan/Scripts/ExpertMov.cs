@@ -13,7 +13,7 @@ public class ExpertMov : AllEnemy
     public Vector2 hitRange = new Vector2 (4f,4f);
     private Transform player;
     private int a = 1;
-    private int turningRight = 1;
+    public int turningRight = 1;
     private SpriteRenderer sr;
     public AudioSource asa;
 

@@ -65,4 +65,10 @@ public class AllEnemy : MonoBehaviour, getDamage
     {
         Destroy(gameObject);
     }
+
+    void backIdle()
+    {
+        anim.Play("Idle");
+        condition = "idle";
+    }
 }
