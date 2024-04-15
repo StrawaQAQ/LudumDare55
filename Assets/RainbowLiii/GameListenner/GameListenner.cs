@@ -11,11 +11,14 @@ public class GameListenner : MonoBehaviour
     public int MaxKey;
     public float btwtime;
     public float temptime;
+    public float barrageTime;
+    private float btwTime;
     // Start is called before the first frame update
     void Start()
     {
         //kl = KL.GetComponent<KeyboradListen>();
-        
+        BulletChatController.instance.AddBulletChat("Manager", "The live stream is on!");
+        btwTime = 0f;
         MaxKey = 3;
     }
 
@@ -31,6 +34,39 @@ public class GameListenner : MonoBehaviour
                 MaxKey = 8;
             }
             temptime += btwtime;
+        }
+        if(btwTime >= barrageTime)
+        {
+            barrage();
+            btwTime = 0f;
+        }
+        else
+        {
+            btwTime += Time.deltaTime;
+        }
+    }
+    void barrage()
+    {
+        int randomNum = Random.Range(0, 5);
+        if(randomNum == 0)
+        {
+            BulletChatController.instance.AddBulletChat("Hang", "Hello, anchor");
+        }
+        else if(randomNum == 1)
+        {
+            BulletChatController.instance.AddBulletChat("Hong", "I really expect");
+        }
+        else if(randomNum == 2)
+        {
+            BulletChatController.instance.AddBulletChat("Rainbow", "When is the next live broadcast£¿");
+        }
+        else if(randomNum == 3)
+        {
+            BulletChatController.instance.AddBulletChat("Xixi", "It's not bad.");
+        }
+        else if(randomNum == 4)
+        {
+            BulletChatController.instance.AddBulletChat("SugerMan", "How long will the anchor be on today£¿");
         }
     }
 }

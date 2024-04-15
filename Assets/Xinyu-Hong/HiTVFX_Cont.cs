@@ -8,6 +8,7 @@ public class HiTVFX_Cont : MonoBehaviour
    public bool magicButton;
    private float CD = 3f;
    private Rigidbody2D rb;
+   public AudioSource hitGround;
 
    void Suiside()
    {
@@ -29,5 +30,11 @@ public class HiTVFX_Cont : MonoBehaviour
          CD -= Time.fixedDeltaTime;
          rb.velocity = new Vector2(speed.x*CD*2, speed.y*CD*2);
       }
+   }
+
+   void HitGround()
+   {
+      hitGround.pitch = Random.Range(0.7f,1.2f);
+      hitGround.Play();
    }
 }

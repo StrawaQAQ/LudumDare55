@@ -8,7 +8,8 @@ public class PlayerAttack : MonoBehaviour
     private MicrophoneInput MI;
     public CapsuleCollider2D cap;
     private PlayerControl pc;
-    public float MaxRange;
+    private ParticleSystem ps;
+    //public float MaxRange;
     public float MaxTime;
     public float esctime;
     public int damage;
@@ -19,6 +20,7 @@ public class PlayerAttack : MonoBehaviour
         MI = Microphone.GetComponent<MicrophoneInput>();
         cap = GetComponent<CapsuleCollider2D>();
         pc = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
+        ps = GetComponent<ParticleSystem>();
         esctime = MaxTime;
     }
 
@@ -28,20 +30,29 @@ public class PlayerAttack : MonoBehaviour
         MaxTime = pc.MaxTime;
         damage = pc.damage;
         Range = pc.attackRange;
-        if(esctime >= MaxTime && MI.realVolume > 1f)
+        if(esctime >= MaxTime && (MI.realVolume > 1f || Input.GetKey(KeyCode.E)))
         {
-            cap.size = Range;
+            transform.localScale = Range;
             cap.enabled = true;
+            ps.Play();
             esctime = 0f;
         }
         else
         {
             esctime += Time.deltaTime;
+            ps.Stop(true);
             cap.enabled = false;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        EnemyCommonDamage a = other.GetComponent<EnemyCommonDamage>();
+        Debug.Log("O");
+        // collision.GetComponent<EnemyCommonDamage>().TakeDamage(damage);
+        if (a != null && other.tag == "EnemyB")
+        {
+            Debug.Log("啊");
+            a.TakeDamage(damage);
+        }
     }
 }

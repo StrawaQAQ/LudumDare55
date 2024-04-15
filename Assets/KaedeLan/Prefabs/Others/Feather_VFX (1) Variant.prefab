@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7379381299234359317, guid: 5e95c6ecf8ee6714abd3bcb1772c18a7, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7379381299234359317, guid: 5e95c6ecf8ee6714abd3bcb1772c18a7, type: 3}
       propertyPath: m_SortingLayerID
@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 6957031443569102112}
     - target: {fileID: 7379381299881591478, guid: 5e95c6ecf8ee6714abd3bcb1772c18a7, type: 3}
       propertyPath: m_Name
-      value: Feather_VFX (1)
+      value: Feather_VFX (1) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7379381299881591479, guid: 5e95c6ecf8ee6714abd3bcb1772c18a7, type: 3}
       propertyPath: m_RootOrder
@@ -81,14 +81,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7379381300372294743, guid: 5e95c6ecf8ee6714abd3bcb1772c18a7, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7379381300372294743, guid: 5e95c6ecf8ee6714abd3bcb1772c18a7, type: 3}
       propertyPath: m_SortingLayerID
       value: 918939347
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8910428331904467378, guid: 5e95c6ecf8ee6714abd3bcb1772c18a7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e95c6ecf8ee6714abd3bcb1772c18a7, type: 3}
+--- !u!1 &6957031443120473030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7379381299881591478, guid: 5e95c6ecf8ee6714abd3bcb1772c18a7, type: 3}
+  m_PrefabInstance: {fileID: 496665950841536880}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &595943101923369868
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957031443120473030}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 42f058290067602438c22b81ff8ff855, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!198 &6957031443569102112 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7379381300372294736, guid: 5e95c6ecf8ee6714abd3bcb1772c18a7, type: 3}

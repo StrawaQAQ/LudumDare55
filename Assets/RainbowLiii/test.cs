@@ -20,4 +20,8 @@ public class test : MonoBehaviour
     {
         GameObject.FindWithTag("Player").GetComponent<getDamage>().TakeDamage(damage);
     }
+    public void Add()
+    {
+        GameObject.FindWithTag("Player").GetComponent<PlayerControl>().getNum += 8;
+    }
 }

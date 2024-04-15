@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 533965113375501747}
   - component: {fileID: 4318072171346775406}
   - component: {fileID: 1435199796216710205}
+  - component: {fileID: 7224748107660443254}
   m_Layer: 11
   m_Name: BlackPink
   m_TagString: EnemyB
@@ -104,6 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4437e538fc1bd8442bb881a968da15cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  HP: 0
   _HP: 2
   pow: 0
   speed: 0.5
@@ -376,6 +379,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7224748107660443254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533965113375501749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd40fecd3407d24498c2f04a7184f4a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackPinkMov: {fileID: 533965113375501751}
+  expertMov: {fileID: 0}
+  guitarHeroMov: {fileID: 0}
+  WildSingerMov: {fileID: 0}
+  index: 0
 --- !u!1 &533965113508133324
 GameObject:
   m_ObjectHideFlags: 0
