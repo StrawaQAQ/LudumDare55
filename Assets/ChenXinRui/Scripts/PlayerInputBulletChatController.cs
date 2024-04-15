@@ -20,7 +20,7 @@ public class PlayerInputBulletChatController : MonoBehaviour
         InputField.text = InputField.text.Replace("\n", string.Empty);
         if (!string.IsNullOrEmpty(InputField.text))
         {
-            BulletChatController.instance.AddBulletChat("Œ“", InputField.text);
+            BulletChatController.instance.AddBulletChat("Myself", InputField.text);
             StopCoroutine(UpdateScrollbar());
             StartCoroutine(UpdateScrollbar());
            
