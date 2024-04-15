@@ -18,6 +18,7 @@ public class AllEnemy : MonoBehaviour
     [Header("攻击范围")]
     public GameObject enemyDamage;
     public bool hasDamage = false;
+    public GameObject note;
 
     protected void Awake()
     {
@@ -31,10 +32,11 @@ public class AllEnemy : MonoBehaviour
 
     protected void FixedUpdate()
     {
-        if(HP <= 0)
+        if(HP <= 0 && condition != "death")
         {
             condition = "death";
             anim.Play("Dead");
+            Instantiate(note, transform);
         }
     }
 
