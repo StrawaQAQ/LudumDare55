@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyVision : MonoBehaviour
 {
     public bool inRange = false;
+    
     private Collider2D coll;
 
     void Awake()
