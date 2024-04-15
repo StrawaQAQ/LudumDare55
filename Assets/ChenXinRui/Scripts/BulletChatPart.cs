@@ -12,6 +12,9 @@ public class BulletChatPart : MonoBehaviour
     {
         text.text ="<color=blue>" + name + ": </color>" + word;
     }
-
+    public void FlyBulletChat(string word)
+    {
+        text.text =  word;
+    }
 
 }

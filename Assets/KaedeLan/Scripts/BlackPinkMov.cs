@@ -15,6 +15,8 @@ public class BlackPinkMov : AllEnemy
     public float tempRec;
     public AudioSource walkSE;
     public AudioSource hitSE;
+    private Transform target;
+    private bool hitSth = false;
 
     void Awake()
     {
@@ -60,6 +62,7 @@ public class BlackPinkMov : AllEnemy
         base.FixedUpdate();
         if(condition != "death")
         {
+            if(!hitSth) target = player;
             if(enemyVision.inRange && (condition=="idle"))
             {
                 condition = "dash";
@@ -111,5 +114,14 @@ public class BlackPinkMov : AllEnemy
     void StopHit()
     {
         attackP.SetActive(false);
+    }
+
+    void OnColliderEnter2D(Collider2D other)
+    {
+        //  玩家在人物上方
+        if(player.transform.position.y > transform.position.y)
+        {
+            
+        }
     }
 }

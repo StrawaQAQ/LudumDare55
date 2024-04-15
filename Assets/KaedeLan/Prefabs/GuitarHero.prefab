@@ -178,6 +178,7 @@ MonoBehaviour:
   condition: 
   enemyDamage: {fileID: 0}
   hasDamage: 0
+  note: {fileID: 8930042931129726581, guid: a77bfbbab48c45840b6f341e0f12ce11, type: 3}
   enemyVision: {fileID: 478734232331793691}
   audioWave:
   - {fileID: 5322559130823728109, guid: bd2d210e07a587847a302b37a4914391, type: 3}

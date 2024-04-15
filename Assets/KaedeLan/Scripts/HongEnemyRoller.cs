@@ -21,6 +21,7 @@ public class HongEnemyRoller : MonoBehaviour
         {
             if(CD <= 0)
             {
+                Debug.Log("aaaaa");
                 int ran = Random.Range(0,length);
                 Instantiate(enemy[ran], transform.position, transform.rotation);
                 switch(ran)
