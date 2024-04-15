@@ -7,11 +7,13 @@ public class NoteCont : MonoBehaviour
     public Sprite[] note;
     public SpriteRenderer sr;
     private Animator anim;
+    private int k = 0;
 
     void Awake()
     {
         sr.sprite = note[(int)Random.Range(0,3)];
         anim = GetComponent<Animator>();
+        k = 0;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -19,9 +21,13 @@ public class NoteCont : MonoBehaviour
         PlayerControl a = other.GetComponent<PlayerControl>();
         if (a != null && other.tag == "Player")
         {
-            a.getNum ++;
-            a.CollectPlay();
-            anim.Play("Dead");
+            if(k == 0)
+            {
+                a.getNum ++;
+                a.CollectPlay();
+                anim.Play("Dead");
+                k++;
+            }
         }
     }
 
