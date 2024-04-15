@@ -2724,13 +2724,13 @@ MonoBehaviour:
   camera: {fileID: 832992838}
   player: {fileID: 1229975355}
   offSet: {x: 0.42, y: 0}
-  deltaX_1: 0.02
-  deltaX_2: 17.69
+  deltaX_1: -0.03
+  deltaX_2: 7.69
   moveSpeedX: 20
   followSmoothTime_X: 0.1
   arrivalAnchorX: 1
-  deltaY_1: -0.01
-  deltaY_2: 9.56
+  deltaY_1: -0
+  deltaY_2: 4.53
   moveSpeedY: 20
   followSmoothTime_Y: 0.1
   arrivalAnchorY: 1
@@ -4147,6 +4147,7 @@ MonoBehaviour:
   bulletChatPartPrefab: {fileID: 3259416046374635222, guid: d937d1e3089bc984c81617a69875bb90, type: 3}
   flyWordPrefab: {fileID: 2094031121008990616, guid: f1cdd81cf9bf49d49bab58901559521c, type: 3}
   AudioSource: {fileID: 1373639170}
+  followerCount: {fileID: 0}
 --- !u!114 &1373639167
 MonoBehaviour:
   m_ObjectHideFlags: 0
