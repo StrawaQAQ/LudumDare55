@@ -27,6 +27,7 @@ public class PlayerControl : MonoBehaviour,getDamage
     public GameObject BF;
     private BuffSystem bf;
     public GameObject VFX;
+    public GameObject GG;
     void Start()
     {
         input = new PlayerInput();
@@ -159,6 +160,7 @@ public class PlayerControl : MonoBehaviour,getDamage
     }
     void Die()
     {
-        Destroy(gameObject);
+        GG.SetActive(true);
+        Time.timeScale = 0;
     }
 }

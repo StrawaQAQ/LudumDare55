@@ -18,11 +18,13 @@ public class GameListenner : MonoBehaviour
     private void Awake()
     {
         Screen.SetResolution(Screen.width, (int)(Screen.width / 1920f * 1080), true);
+        Time.timeScale = 1;
     }
     void Start()
     {
         //kl = KL.GetComponent<KeyboradListen>();
         BulletChatController.instance.AddBulletChat("Manager", "The live stream is on!");
+        temptime = btwtime;
         btwTime = 0f;
         MaxKey = 3;
     }
@@ -63,7 +65,7 @@ public class GameListenner : MonoBehaviour
         }
         else if(randomNum == 2)
         {
-            BulletChatController.instance.AddBulletChat("Rainbow", "When is the next live broadcast£¿");
+            BulletChatController.instance.AddBulletChat("Rainbow", "When is the next live broadcast?");
         }
         else if(randomNum == 3)
         {
@@ -71,7 +73,7 @@ public class GameListenner : MonoBehaviour
         }
         else if(randomNum == 4)
         {
-            BulletChatController.instance.AddBulletChat("SugerMan", "How long will the anchor be on today£¿");
+            BulletChatController.instance.AddBulletChat("SugerMan", "How long will the anchor be on today?");
         }
     }
 }

@@ -87,6 +87,7 @@ public class BuffSystem : MonoBehaviour
     {
         BulletChatController.instance.AddBulletChat("Manager", "One  [Big Fan] enter the studio!");
         pc.attackRange = new Vector2(pc.attackRange.x + 0.5f, pc.attackRange.y + 0.25f);
+        Instantiate(VFXs[4], pc.transform.position, Quaternion.identity);
         FollowController.instance.AddFollower();
     }
     //³Í·£
