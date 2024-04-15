@@ -44,12 +44,13 @@ public class FollowPlayer : MonoBehaviour, getDamage
             
         }
         lastPos = transform.position;
+        savePlayerLastPos = player.position;
     }
     private Vector2 saveTarget;
     public LayerMask LayerMask;
     public  float deltaDegree = 30f;
     public float delta2 = 5f;
-
+    private Vector3 savePlayerLastPos;
     private bool MoveToTarget(float speed)
     {
         Vector2 targetPos;
@@ -58,48 +59,10 @@ public class FollowPlayer : MonoBehaviour, getDamage
         else if (savePlayerSpeedDir != Vector2.zero) Dir = savePlayerSpeedDir;
         else Dir = Vector2.up;
         Dir = Quaternion.Euler(0, 0, 180) * Dir;
-        Dir = Quaternion.Euler(0, 0, degree) * Dir;
+        if((savePlayerLastPos-player.position).magnitude<0.0005f) Dir = Quaternion.Euler(0, 0, 360* which / allNumber) * Dir;
+        else Dir = Quaternion.Euler(0, 0, degree) * Dir;
         targetPos = (Vector2)player.position + Dir * distance;
-        saveTarget = targetPos;
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, (targetPos - (Vector2)transform.position).normalized, (targetPos - (Vector2)transform.position).magnitude, LayerMask);
-        //if (hit.collider != null)
-        //{
-        //    Vector2 newVector = (targetPos - (Vector2)transform.position).normalized;
-        //    float angle = Vector2.Angle(newVector, hit.normal);
-        //    if (angle < deltaDegree) newVector = Quaternion.Euler(0, 0,deltaDegree) * newVector;
-        //    targetPos = Vector2.Reflect(newVector, hit.normal)*100+hit.point;
-
-        //}
-
-
-
-        ////水平检测,移动y
-        //if (Physics2D.Raycast((Vector2)transform.position + Collider2D.offset + Vector2.up * Collider2D.size.y * delta / 2, Vector2.right * Mathf.Sign(targetPos.x - transform.position.x), delta2, LayerMask).collider != null)
-        //{
-        //    Debug.Log("水平");
-        //    //TransformMove.MoveTowards(transform, new Vector3(transform.position.x, targetPos.y + 1000, 0), (chasingSpeed + speed) * Time.fixedDeltaTime);
-        //    targetPos += Vector2.up * 100;
-        //}
-        //else if (Physics2D.Raycast((Vector2)transform.position + Collider2D.offset - Vector2.up * Collider2D.size.y * delta / 2, Vector2.right * Mathf.Sign(targetPos.x - transform.position.x), delta2, LayerMask).collider != null)
-        //{
-        //    Debug.Log("水平");
-        //    //TransformMove.MoveTowards(transform, new Vector3(transform.position.x, targetPos.y + 1000, 0), (chasingSpeed + speed) * Time.fixedDeltaTime);
-        //    targetPos += Vector2.up * 100;
-
-        //}
-        //else if (Physics2D.Raycast((Vector2)transform.position + Collider2D.offset + Vector2.right * Collider2D.size.x * delta / 2, Vector2.up * Mathf.Sign(targetPos.y - transform.position.y), delta2, LayerMask).collider != null)
-        //{
-        //    Debug.Log("竖直");
-        //    //TransformMove.MoveTowards(transform, new Vector3(targetPos.x + 1000, transform.position.y, 0), (chasingSpeed + speed) * Time.fixedDeltaTime);
-        //    targetPos += Vector2.right * 100;
-        //}
-        //else if (Physics2D.Raycast((Vector2)transform.position + Collider2D.offset - Vector2.right * Collider2D.size.x * delta / 2, Vector2.up * Mathf.Sign(targetPos.y - transform.position.y), delta2, LayerMask).collider != null)
-        //{
-        //    Debug.Log("竖直");
-        //    //TransformMove.MoveTowards(transform, new Vector3(targetPos.x + 1000, transform.position.y, 0), (chasingSpeed + speed) * Time.fixedDeltaTime);
-        //    targetPos += Vector2.right * 100;
-        //}
-
+        saveTarget = targetPos; 
 
 
         bool value = TransformMove.MoveTowards(transform, targetPos, speed * Time.fixedDeltaTime);
@@ -107,13 +70,15 @@ public class FollowPlayer : MonoBehaviour, getDamage
 
         return value;
     }
+    public int which;
+    public int allNumber;
     public void InitData(Transform player,int index)
     {
         this.player = player;
         this.index = index;
         int number = Mathf.FloorToInt(Mathf.Sqrt(index));
-        int allNumber = 2 * number + 1;
-        int which = index - number * number;
+        allNumber = 2 * number + 1;
+        which = index - number * number;
         degree = -(openDegree / 2) + openDegree / allNumber * which;
         distance =number/Mathf.Cos(degree*Mathf.Deg2Rad)* deltaDistance;
 
@@ -122,8 +87,8 @@ public class FollowPlayer : MonoBehaviour, getDamage
     public void UpdateFollowData(int index)
     {
         int number = Mathf.FloorToInt(Mathf.Sqrt(index));
-        int allNumber = 2 * number + 1;
-        int which = index - number * number;
+        allNumber = 2 * number + 1;
+        which = index - number * number;
         degree = -(openDegree/2) + openDegree / allNumber * which;
         distance = number / Mathf.Cos(degree * Mathf.Deg2Rad)* deltaDistance;
     }
