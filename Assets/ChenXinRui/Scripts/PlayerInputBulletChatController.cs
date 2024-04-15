@@ -36,4 +36,15 @@ public class PlayerInputBulletChatController : MonoBehaviour
         scrollbar.value = 0;
 
     }
+
+    public void LimmitWordCount(int count)
+    {
+        if (InputField.text.Length > count)
+        {
+            Debug.Log("´¥·¢");
+            string save = InputField.text;
+            save.Remove(count, InputField.text.Length - count);
+            InputField.text = save; 
+        }
+    }
 }
