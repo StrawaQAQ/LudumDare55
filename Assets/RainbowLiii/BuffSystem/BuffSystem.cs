@@ -22,7 +22,7 @@ public class BuffSystem : MonoBehaviour
     public GameObject[] enemys;
     [Header("ÌØÐ§")]
     public GameObject[] VFXs;
-    FollowController followController = new FollowController();
+    //FollowController followController = new FollowController();
     // Start is called before the first frame update
     void Start()
     {
@@ -85,8 +85,9 @@ public class BuffSystem : MonoBehaviour
     }
     public void Summoning()
     {
-        followController.AddFollower();
+        BulletChatController.instance.AddBulletChat("Manager", "One  [Big Fan] enter the studio!");
         pc.attackRange = new Vector2(pc.attackRange.x + 0.5f, pc.attackRange.y + 0.25f);
+        FollowController.instance.AddFollower();
     }
     //³Í·£
     public void ReduceSpeed()
@@ -128,7 +129,7 @@ public class BuffSystem : MonoBehaviour
             pc.attackRange = new Vector2(pc.attackRange.x - 0.5f, pc.attackRange.y - 0.25f);
             if (pc.attackRange.x <= 0 && pc.attackRange.y <= 0f)
             {
-                pc.attackRange = new Vector2(4f, 2f);
+                pc.attackRange = new Vector2(0.5f, 0.25f);
             }
             Destroy(destroyableObjects[randomIndex]);
         }

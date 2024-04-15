@@ -120,7 +120,7 @@ public class PlayerControl : MonoBehaviour,getDamage
         {
             rb.bodyType = RigidbodyType2D.Static;
             anim.SetBool("die", true);
-            Destroy(gameObject);
+            
         }
     }
     void Sing()
@@ -156,5 +156,9 @@ public class PlayerControl : MonoBehaviour,getDamage
     void end()
     {
         anim.SetBool("damage", false);
+    }
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }
