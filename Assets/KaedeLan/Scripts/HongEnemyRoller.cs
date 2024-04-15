@@ -26,10 +26,10 @@ public class HongEnemyRoller : MonoBehaviour
                 Instantiate(enemy[ran], transform.position, transform.rotation);
                 switch(ran)
                 {
-                    case 0:{BulletChatController.instance.AddBulletChat("MyGiegieNO1", "You're not a good singer！");}break;
-                    case 1:{BulletChatController.instance.AddBulletChat("Expert", "You're about to break your voice！");}break;
-                    case 2:{BulletChatController.instance.AddBulletChat("GuitarHero", "Can you keep up with my music？");}break;
-                    case 3:{BulletChatController.instance.AddBulletChat("MySongNO1", "I want to sing with you...");}break;
+                    case 0:{BulletChatController.instance.AddBulletChat("<color=#ff0000>MyGiegieNO1</color>", "<color=#ff0000>You're not a good singer!</color>");}break;
+                    case 1:{BulletChatController.instance.AddBulletChat("<color=#ff0000>Expert</color>", "<color=#ff0000>You're about to break your voice!</color>");}break;
+                    case 2:{BulletChatController.instance.AddBulletChat("<color=#ff0000>GuitarHero</color>", "<color=#ff0000>Can you keep up with my music?</color>");}break;
+                    case 3:{BulletChatController.instance.AddBulletChat("<color=#ff0000>MySongNO1</color>", "<color=#ff0000>I want to sing with you...</color>");}break;
                 }
                 Instantiate(VFX, new Vector2(transform.position.x, transform.position.y-1.29f), transform.rotation);
                 CD = _CD;
