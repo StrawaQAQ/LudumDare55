@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AllEnemy : MonoBehaviour, getDamage
+public class AllEnemy : MonoBehaviour
 {
     protected Collider2D coll;
     protected Rigidbody2D rb;
-    protected Animator anim;
-    protected int HP;
+    public Animator anim;
+    public int HP;
     [Header("最大生命值")]
     public int _HP;
     [Header("攻击力")]
@@ -53,13 +53,6 @@ public class AllEnemy : MonoBehaviour, getDamage
     {
         enemyDamage.SetActive(false);
     }
-
-    #region 受击接口
-    public void TakeDamage(int damage)
-    {
-        HP -= damage;
-    }
-    #endregion
 
     void Destroy()
     {

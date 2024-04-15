@@ -51,3 +51,4 @@ MonoBehaviour:
   - {fileID: 815697164830796730, guid: 25af948ee0f047541a60891547a6e588, type: 3}
   - {fileID: 478734232046540256, guid: 6132842ce144d5e43864efbdeeb75b46, type: 3}
   - {fileID: 78866836114581502, guid: 78df69abfd9c272468c8f3d2b02e2a51, type: 3}
+  VFX: {fileID: 2153561166192617398, guid: 04f08c45cc2a5194e8ab220b8e11d51d, type: 3}

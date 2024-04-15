@@ -40,8 +40,15 @@ public class PlayerAttack : MonoBehaviour
             cap.enabled = false;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject.FindWithTag("enemyB").GetComponent<getDamage>().TakeDamage(damage);
+        EnemyCommonDamage a = other.GetComponent<EnemyCommonDamage>();
+        Debug.Log("O");
+        // collision.GetComponent<EnemyCommonDamage>().TakeDamage(damage);
+        if (a != null && other.tag == "EnemyB")
+        {
+            Debug.Log("啊");
+            a.TakeDamage(damage);
+        }
     }
 }

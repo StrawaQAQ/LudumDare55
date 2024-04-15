@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 478734232046540257}
   - component: {fileID: 478734232046540186}
   - component: {fileID: 478734232046540187}
+  - component: {fileID: 3935318156944121774}
   m_Layer: 11
   m_Name: GuitarHero
   m_TagString: EnemyB
@@ -169,6 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 202531a8535ab5a46a644cc38c37f438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  HP: 0
   _HP: 2
   pow: 1
   speed: 0.5
@@ -285,6 +288,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3935318156944121774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478734232046540256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd40fecd3407d24498c2f04a7184f4a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackPinkMov: {fileID: 0}
+  expertMov: {fileID: 0}
+  guitarHeroMov: {fileID: 478734232046540186}
+  WildSingerMov: {fileID: 0}
+  index: 2
 --- !u!1 &478734232331793690
 GameObject:
   m_ObjectHideFlags: 0

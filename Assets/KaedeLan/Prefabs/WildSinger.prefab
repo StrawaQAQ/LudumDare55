@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 78866836114581440}
   - component: {fileID: 78866836114581443}
   - component: {fileID: 78866836114581441}
+  - component: {fileID: 6063231957073895724}
   m_Layer: 11
   m_Name: WildSinger
   m_TagString: EnemyB
@@ -103,6 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26daf0f184f7364792a3b493f3b2b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  HP: 0
   _HP: 2
   pow: 0
   speed: 3
@@ -276,6 +279,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6063231957073895724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78866836114581502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd40fecd3407d24498c2f04a7184f4a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackPinkMov: {fileID: 0}
+  expertMov: {fileID: 0}
+  guitarHeroMov: {fileID: 0}
+  WildSingerMov: {fileID: 78866836114581500}
+  index: 3
 --- !u!1 &78866836402679429
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +440,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314e1733d2aa0c942b21fff1d653984f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magicButton: 0
+  debugMode: 0
+  audioWave: {fileID: 0}
   coll: {fileID: 3491999778218420548}
   damage: 1
   hitPlayer: 0
