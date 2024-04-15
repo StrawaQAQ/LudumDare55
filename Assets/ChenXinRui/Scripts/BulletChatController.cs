@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class BulletChatController : MonoBehaviour
     public Transform contentBody,flyWordBody;
     public GameObject bulletChatPartPrefab, flyWordPrefab;
     public AudioSource AudioSource;
-  
+    public TextMeshProUGUI followerCount;
     private void Awake()
     {
         if (instance != null)
@@ -19,6 +20,10 @@ public class BulletChatController : MonoBehaviour
         }
         instance = this;
 
+    }
+    private void FixedUpdate()
+    {
+        followerCount.text = FollowController.followCoune.ToString();
     }
 
     public void AddBulletChat(string name,string word) {

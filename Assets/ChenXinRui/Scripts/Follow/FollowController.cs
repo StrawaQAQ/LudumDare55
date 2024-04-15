@@ -33,6 +33,7 @@ public class FollowController : MonoBehaviour
         allFollower.Add(newFollower);
         a.InitData(player, index);
         index++;
+
     }
 
     public void UpdateRank(int index_)

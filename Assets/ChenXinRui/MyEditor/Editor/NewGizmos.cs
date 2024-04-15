@@ -21,7 +21,7 @@ public class NewGizmos : CustomEditorSelector
 
     List<GizmosSetting> gizmosSettings;
 
-
+    
     public void OnEnable(object target, Editor editor)
     {
         this.target = (Object)target;
