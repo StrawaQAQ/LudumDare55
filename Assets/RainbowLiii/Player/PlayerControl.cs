@@ -6,18 +6,18 @@ using UnityEngine.InputSystem;
 public class PlayerControl : MonoBehaviour,getDamage
 {
     [HideInInspector]public Animator anim;
-    [Header("ÉúÃüÖµ")]
-    public float health;
+    [Header("ï¿½ï¿½ï¿½ï¿½Öµ")]
+    public int health;
     private Rigidbody2D rb;
     Vector2 moveInput;
     public PlayerInput input;
-    [Header("ÒÆ¶¯ËÙ¶È")]
+    [Header("ï¿½Æ¶ï¿½ï¿½Ù¶ï¿½")]
     public float speed;
     public bool enableMove;
-    [Header("Ê°È¡µÄitemÊýÁ¿")]
+    [Header("Ê°È¡ï¿½ï¿½itemï¿½ï¿½ï¿½ï¿½")]
     public int getNum;
     public bool enableCall;
-    [Header("¼üÅÌ¼àÌý")]
+    [Header("ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½")]
     public GameObject kl;
     private KeyboradListen Kl;
     public CapsuleCollider2D cap;
@@ -142,5 +142,12 @@ public class PlayerControl : MonoBehaviour,getDamage
             anim.SetFloat("Vertical", -1);
             anim.SetFloat("Horizontal", 0);
         }
+    }
+
+    public AudioSource collect;
+
+    public void CollectPlay()
+    {
+        collect.Play();
     }
 }

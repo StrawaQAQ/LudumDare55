@@ -22,10 +22,12 @@ public class BuffSystem : MonoBehaviour
     public GameObject[] enemys;
     [Header("ÌØÐ§")]
     public GameObject[] VFXs;
+    FollowController followController = new FollowController();
     // Start is called before the first frame update
     void Start()
     {
         pc = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
+        
         enableIn = false;
     }
 
@@ -83,12 +85,8 @@ public class BuffSystem : MonoBehaviour
     }
     public void Summoning()
     {
-        BulletChatController.instance.AddBulletChat("Manager", "One  [Big Fan] enter the studio!");
-        Instantiate(VFXs[4], new Vector2(pc.transform.position.x, pc.transform.position.y - 1.29f), Quaternion.identity);
-        int randomnum = Random.Range(0, 5);
-        Vector2 point = new Vector2(pc.transform.position.x + randomnum, pc.transform.position.y + randomnum).normalized * 2;
+        followController.AddFollower();
         pc.attackRange = new Vector2(pc.attackRange.x + 0.5f, pc.attackRange.y + 0.25f);
-        Instantiate(summoning, point, Quaternion.identity);
     }
     //³Í·£
     public void ReduceSpeed()

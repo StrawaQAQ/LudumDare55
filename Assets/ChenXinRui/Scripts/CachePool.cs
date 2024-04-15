@@ -70,7 +70,7 @@ public class PreLoadingData
 
 public class CachePool : MonoBehaviour
 {
-    public static CachePool instance;
+    private static CachePool instance;
     public const float DynamicCheckTime = 30f;
     public List<PreLoadingData> allPrefabs = new List<PreLoadingData>();
 
