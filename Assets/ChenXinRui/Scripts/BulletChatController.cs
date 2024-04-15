@@ -11,6 +11,7 @@ public class BulletChatController : MonoBehaviour
     public GameObject bulletChatPartPrefab, flyWordPrefab;
     public AudioSource AudioSource;
     public TextMeshProUGUI followerCount;
+    public PlayerInputBulletChatController PlayerInputBulletChatController;
     private void Awake()
     {
         if (instance != null)
@@ -33,6 +34,10 @@ public class BulletChatController : MonoBehaviour
         GameObject b = CachePool.Instantiate(flyWordPrefab, flyWordBody);
         b.GetComponent<FlyWord>().Fly(word);
         AudioSource.Play();
+
+        StopCoroutine(PlayerInputBulletChatController.UpdateScrollbar());
+        StartCoroutine(PlayerInputBulletChatController.UpdateScrollbar());
+
     }
 
     public void AddBulletChat(string word)
