@@ -56,13 +56,14 @@ public class EnemyDamage : MonoBehaviour
             if (a != null && other.tag == "Player")
             {
                 a.TakeDamage(pow);
-                a.attackRange = new Vector2(a.attackRange.x-0.5f, a.attackRange.y-0.25f);
                 k ++;
                 if(magicButton) {
                     Instantiate(audioWave, transform.position, transform.rotation);
                     Destroy(gameObject);
                 }
             }else{
+                PlayerControl b = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
+                b.attackRange = new Vector2(b.attackRange.x-0.5f, b.attackRange.y-0.25f);
                 FollowController fc = other.GetComponent<FollowController>();
                 if (fc != null && other.tag == "Player")
                 {
