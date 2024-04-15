@@ -3934,6 +3934,7 @@ MonoBehaviour:
   MaxKey: 0
   btwtime: 30
   temptime: 0
+  barrageTime: 5
 --- !u!4 &1785324424
 Transform:
   m_ObjectHideFlags: 0

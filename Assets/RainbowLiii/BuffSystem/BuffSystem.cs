@@ -49,14 +49,17 @@ public class BuffSystem : MonoBehaviour
     public void AddDamage()
     {
         pc.damage += addDamage;
+        BulletChatController.instance.AddBulletChat("Manager", "The anchor receives the gift [Golden microphone]!");
     }
     public void AddSpeed()
     {
         pc.speed += addSpeed;
+        BulletChatController.instance.AddBulletChat("Manager", "The anchor receives the gift [Rocket]!");
     }
     public void ReduceTime()
     {
         pc.MaxTime -= reduceTime;
+        BulletChatController.instance.AddBulletChat("Manager", "The anchor receives the gift [Throat Lozenge]!");
         if (pc.MaxTime <= 0)
         {
             pc.MaxTime = 0f;
@@ -65,13 +68,16 @@ public class BuffSystem : MonoBehaviour
     public void AddHealth()
     {
         pc.health += addhealth;
+        BulletChatController.instance.AddBulletChat("Manager", "The anchor receives the gift [Heart]!");
     }
     public void Invincible()
     {
         enableIn = true;
+        BulletChatController.instance.AddBulletChat("Manager", "The anchor receives the gift [Crown]!");
     }
     public void Summoning()
     {
+        BulletChatController.instance.AddBulletChat("Manager", "One  [Big Fan] enter the studio!");
         int randomnum = Random.Range(0, 5);
         Vector2 point = new Vector2(pc.transform.position.x + randomnum, pc.transform.position.y + randomnum).normalized * 2;
         pc.attackRange = new Vector2(pc.attackRange.x + 2f, pc.attackRange.y + 1f);
@@ -81,6 +87,7 @@ public class BuffSystem : MonoBehaviour
     public void ReduceSpeed()
     {
         pc.speed -= reduceSpeed;
+        BulletChatController.instance.AddBulletChat("Manager", "The anchor is a little tired");
         if (pc.speed <= 10)
         {
             pc.speed = 10f;
@@ -89,10 +96,12 @@ public class BuffSystem : MonoBehaviour
     public void AddTime()
     {
         pc.MaxTime += addTime;
+        BulletChatController.instance.AddBulletChat("Manager", "The anchor seems thirsty");
     }
     public void ReduceDamage()
     {
         pc.damage -= reduceDamage;
+        BulletChatController.instance.AddBulletChat("Manager", "One [Fan] leave the studio");
         if (pc.damage <= 1)
         {
             pc.damage = 1;
@@ -100,6 +109,7 @@ public class BuffSystem : MonoBehaviour
     }
     public void ReduceTeam()
     {
+        BulletChatController.instance.AddBulletChat("Manager", "One [Big Fan] leave the studio");
         GameObject[] destroyableObjects = GameObject.FindGameObjectsWithTag("Summoning");
 
         if (destroyableObjects.Length > 0)
@@ -120,6 +130,7 @@ public class BuffSystem : MonoBehaviour
     }
     public void CallEnemy()
     {
+        BulletChatController.instance.AddBulletChat("Manager", "The anchor is playing PK with other anchors");
         for (int i = 0; i < enemys.Length; i++)
         {
             Instantiate(enemys[i], new Vector2(pc.transform.position.x + Random.Range(3, 5), pc.transform.position.y + Random.Range(3, 5)), Quaternion.identity);
