@@ -29,7 +29,7 @@ public class PlayerInputBulletChatController : MonoBehaviour
         }
 
     }
-    IEnumerator UpdateScrollbar()
+    public IEnumerator UpdateScrollbar()
     {
         scrollbar.value = 0;
         yield return new WaitForSeconds(0.05f);

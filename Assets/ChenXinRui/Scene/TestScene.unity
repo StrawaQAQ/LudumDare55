@@ -520,6 +520,7 @@ MonoBehaviour:
   flyWordPrefab: {fileID: 2094031121008990616, guid: f1cdd81cf9bf49d49bab58901559521c, type: 3}
   AudioSource: {fileID: 381273220}
   followerCount: {fileID: 543963676}
+  PlayerInputBulletChatController: {fileID: 1456398778}
 --- !u!114 &381273216
 MonoBehaviour:
   m_ObjectHideFlags: 0
