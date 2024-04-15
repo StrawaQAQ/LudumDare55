@@ -128,31 +128,34 @@ public class CameraController : MonoBehaviour
 
     private void CameraHorizontalMove()
     {
-        if (!arrivalAnchorX) return;
-        if (player.position.x > camera.position.x+offSet.x)
+        if (player != null)
         {
-            if (player.position.x < anchorPoint_X[2].PosX && !isLeftAnchor) MoveToX(camera, anchorPoint_X[2].moveToPosX, ref currentVelocity_X, followSmoothTime_X, 100, Time.fixedDeltaTime);
-            else if (player.position.x > anchorPoint_X[2].PosX && player.position.x < anchorPoint_X[3].PosX)
+            if (!arrivalAnchorX) return;
+            if (player.position.x > camera.position.x + offSet.x)
             {
-                isLeftAnchor = false;
+                if (player.position.x < anchorPoint_X[2].PosX && !isLeftAnchor) MoveToX(camera, anchorPoint_X[2].moveToPosX, ref currentVelocity_X, followSmoothTime_X, 100, Time.fixedDeltaTime);
+                else if (player.position.x > anchorPoint_X[2].PosX && player.position.x < anchorPoint_X[3].PosX)
+                {
+                    isLeftAnchor = false;
+                }
+                else if (player.position.x > anchorPoint_X[3].PosX)
+                {
+                    arrivalAnchorX = false;
+                    isLeftAnchor = true;
+                }
             }
-            else if (player.position.x > anchorPoint_X[3].PosX)
+            else
             {
-                arrivalAnchorX = false;
-                isLeftAnchor = true;
-            }
-        }
-        else
-        {
-            if (player.position.x > anchorPoint_X[1].PosX && isLeftAnchor) MoveToX(camera, anchorPoint_X[1].moveToPosX, ref currentVelocity_X, followSmoothTime_X, 100, Time.fixedDeltaTime);//TransformMove.MoveX(camera, anchorPoint[1].moveToPosX, 100);
-            else if (player.position.x > anchorPoint_X[0].PosX && player.position.x < anchorPoint_X[1].PosX)
-            {
-                isLeftAnchor = true;
-            }
-            else if (player.position.x < anchorPoint_X[0].PosX)
-            {
-                arrivalAnchorX = false;
-                isLeftAnchor = false;
+                if (player.position.x > anchorPoint_X[1].PosX && isLeftAnchor) MoveToX(camera, anchorPoint_X[1].moveToPosX, ref currentVelocity_X, followSmoothTime_X, 100, Time.fixedDeltaTime);//TransformMove.MoveX(camera, anchorPoint[1].moveToPosX, 100);
+                else if (player.position.x > anchorPoint_X[0].PosX && player.position.x < anchorPoint_X[1].PosX)
+                {
+                    isLeftAnchor = true;
+                }
+                else if (player.position.x < anchorPoint_X[0].PosX)
+                {
+                    arrivalAnchorX = false;
+                    isLeftAnchor = false;
+                }
             }
         }
 
