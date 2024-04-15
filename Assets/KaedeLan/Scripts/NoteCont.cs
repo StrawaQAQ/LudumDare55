@@ -20,6 +20,7 @@ public class NoteCont : MonoBehaviour
         if (a != null && other.tag == "Player")
         {
             a.getNum ++;
+            a.CollectPlay();
             anim.Play("Dead");
         }
     }

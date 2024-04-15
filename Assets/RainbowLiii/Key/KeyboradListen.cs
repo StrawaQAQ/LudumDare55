@@ -7,23 +7,23 @@ using UnityEngine.UI;
 
 public class KeyboradListen : MonoBehaviour
 {
-    [Header("°´¼üÁÐ±í")]
-    public List<GameObject> keys; // °´¼üÁÐ±í  
-    private List<ShowKey> showKeys; // ShowKey×é¼þÁÐ±í  
-    private List<float> correctSequence; // ÕýÈ·µÄ°´¼üË³Ðò  
-    private List<float> inputSequence = new List<float>(); // Íæ¼ÒµÄÊäÈëÐòÁÐ  
-    private bool isSequenceStarted = false; // ±ê¼ÇÊÇ·ñÒÑ¾­¿ªÊ¼¼ì²éÐòÁÐ  
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½")]
+    public List<GameObject> keys; // ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½  
+    private List<ShowKey> showKeys; // ShowKeyï¿½ï¿½ï¿½ï¿½Ð±ï¿½  
+    private List<float> correctSequence; // ï¿½ï¿½È·ï¿½Ä°ï¿½ï¿½ï¿½Ë³ï¿½ï¿½  
+    private List<float> inputSequence = new List<float>(); // ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
+    private bool isSequenceStarted = false; // ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
     private PlayerControl pc;
     private int i;
-    [Header("qteÏÞÖÆÊ±¼ä")]
+    [Header("qteï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½")]
     public float MaxTime;
     public float escapTime;
-    [Header("×î´óKeyÖµ")]
+    [Header("ï¿½ï¿½ï¿½KeyÖµ")]
     public int MaxKey = 3;
-    [Header("»ñÈ¡ÓÎÏ·¼àÌýÆ÷")]
+    [Header("ï¿½ï¿½È¡ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject GameListenner;
     private GameListenner GL;
-    [Header("KeyÖµÔö¼ÓÊ±¼ä¼ä¸ô")]
+    [Header("KeyÖµï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½")]
     public float BtwTime;
     [HideInInspector] public float tempTime;
     public GameObject buff;
@@ -45,7 +45,7 @@ public class KeyboradListen : MonoBehaviour
             showKeys.Add(key.GetComponent<ShowKey>());
         }
         correctSequence = new List<float>();
-        // ¼ÙÉè ShowKey ×é¼þµÄ num ÊôÐÔÊÇ°´¼üµÄÕýÈ·Ë³Ðò 
+        // ï¿½ï¿½ï¿½ï¿½ ShowKey ï¿½ï¿½ï¿½ï¿½ï¿½ num ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·Ë³ï¿½ï¿½ 
         Debug.Log(keys.Count);
     }
 
@@ -79,6 +79,10 @@ public class KeyboradListen : MonoBehaviour
             Timelimit();
     }
 
+    public AudioSource correctSE;
+    public AudioSource inCorrectSE;
+    public AudioSource apSE;
+
     void KeyTag()
     {
         //Debug.Log(1);
@@ -89,15 +93,16 @@ public class KeyboradListen : MonoBehaviour
             showKeys[i].keyW.GetComponent<Image>().sprite = sprites[0];
             if (inputSequence[i] == correctSequence[i])
             {
-                
+                correctSE.Play();
                 showKeys[i].keyW.GetComponent<Image>().color = Color.green;
-                // Debug.Log("°´¼ü1±»°´ÏÂ£¬Ìí¼Óµ½ÐòÁÐÖÐ¡£");
+                // Debug.Log("ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½");
                 // Debug.Log(correctSequence.Count);
                 i++;
             }
             else
             {
-                Debug.Log("Íæ¼ÒÃ»ÓÐÕýÈ·µØ°´Ë³Ðò°´¼ü¡£");
+                inCorrectSE.Play();
+                Debug.Log("ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½È·ï¿½Ø°ï¿½Ë³ï¿½ò°´¼ï¿½ï¿½ï¿½");
                 showKeys[i].keyW.GetComponent<Image>().color = Color.red;
                 BadBuff();
                 ResetSequence();
@@ -111,14 +116,16 @@ public class KeyboradListen : MonoBehaviour
             showKeys[i].keyA.GetComponent<Image>().sprite = sprites[1];
             if (inputSequence[i] == correctSequence[i])
             {
+                correctSE.Play();
                 showKeys[i].keyA.GetComponent<Image>().color = Color.green;
-                // Debug.Log("°´¼ü2±»°´ÏÂ£¬Ìí¼Óµ½ÐòÁÐÖÐ¡£");
+                // Debug.Log("ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½");
                 // Debug.Log(correctSequence.Count);
                 i++;
             }
             else
             {
-                Debug.Log("Íæ¼ÒÃ»ÓÐÕýÈ·µØ°´Ë³Ðò°´¼ü¡£");
+                inCorrectSE.Play();
+                Debug.Log("ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½È·ï¿½Ø°ï¿½Ë³ï¿½ò°´¼ï¿½ï¿½ï¿½");
                 showKeys[i].keyA.GetComponent<Image>().color = Color.red;
                 BadBuff();
                 ResetSequence();
@@ -131,14 +138,16 @@ public class KeyboradListen : MonoBehaviour
             showKeys[i].keyS.GetComponent<Image>().sprite = sprites[2];
             if (inputSequence[i] == correctSequence[i])
             {
+                correctSE.Play();
                 showKeys[i].keyS.GetComponent<Image>().color = Color.green;
-                // Debug.Log("°´¼ü3±»°´ÏÂ£¬Ìí¼Óµ½ÐòÁÐÖÐ¡£");
+                // Debug.Log("ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½");
                 // Debug.Log(correctSequence.Count);
                 i++;
             }
             else
             {
-                Debug.Log("Íæ¼ÒÃ»ÓÐÕýÈ·µØ°´Ë³Ðò°´¼ü¡£");
+                inCorrectSE.Play();
+                Debug.Log("ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½È·ï¿½Ø°ï¿½Ë³ï¿½ò°´¼ï¿½ï¿½ï¿½");
                 showKeys[i].keyS.GetComponent<Image>().color = Color.red;
                 BadBuff();
                 ResetSequence();
@@ -151,14 +160,16 @@ public class KeyboradListen : MonoBehaviour
             showKeys[i].keyD.GetComponent<Image>().sprite = sprites[3];
             if (inputSequence[i] == correctSequence[i])
             {
+                correctSE.Play();
                 showKeys[i].keyD.GetComponent<Image>().color = Color.green;
-                // Debug.Log("°´¼ü4±»°´ÏÂ£¬Ìí¼Óµ½ÐòÁÐÖÐ¡£");
+                // Debug.Log("ï¿½ï¿½ï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½");
                 // Debug.Log(correctSequence.Count);
                 i++;
             }
             else
             {
-                Debug.Log("Íæ¼ÒÃ»ÓÐÕýÈ·µØ°´Ë³Ðò°´¼ü¡£");
+                inCorrectSE.Play();
+                Debug.Log("ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½È·ï¿½Ø°ï¿½Ë³ï¿½ò°´¼ï¿½ï¿½ï¿½");
                 showKeys[i].keyD.GetComponent<Image>().color = Color.red;
                 BadBuff();
                 ResetSequence();
@@ -171,14 +182,15 @@ public class KeyboradListen : MonoBehaviour
 
         if (inputSequence.SequenceEqual(correctSequence))
         {
-            //Debug.Log("Íæ¼ÒÕýÈ·µØ°´Ë³Ðò°´¼üÁË£¡");
+            apSE.Play();
+            //Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½Ø°ï¿½Ë³ï¿½ò°´¼ï¿½ï¿½Ë£ï¿½");
             BulletChatController.instance.AddBulletChat("iRui", "You sing to my heart!!");
             ShowBuff();
             ResetSequence();
         }
         else
         {
-            Debug.Log("Íæ¼ÒÃ»ÓÐÕýÈ·µØ°´Ë³Ðò°´¼ü¡£");
+            Debug.Log("ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½È·ï¿½Ø°ï¿½Ë³ï¿½ò°´¼ï¿½ï¿½ï¿½");
             BadBuff();
             ResetSequence();
         }
