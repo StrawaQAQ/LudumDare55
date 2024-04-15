@@ -28,7 +28,7 @@ public class PlayerAttack : MonoBehaviour
         MaxTime = pc.MaxTime;
         damage = pc.damage;
         Range = pc.attackRange;
-        if(esctime >= MaxTime && MI.realVolume > 1f)
+        if(esctime >= MaxTime && (MI.realVolume > 1f || Input.GetKey(KeyCode.E)))
         {
             cap.size = Range;
             cap.enabled = true;
@@ -42,6 +42,6 @@ public class PlayerAttack : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        GameObject.FindWithTag("enemyB").GetComponent<getDamage>().TakeDamage(damage);
     }
 }

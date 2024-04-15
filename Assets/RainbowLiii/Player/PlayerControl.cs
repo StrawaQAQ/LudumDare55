@@ -40,24 +40,46 @@ public class PlayerControl : MonoBehaviour,getDamage
     {
         OnMove();
         
-        anim.SetFloat("Horizontal", moveInput.x);
-        anim.SetFloat("Vertical", moveInput.y);
-        anim.SetFloat("Magnitude", moveInput.magnitude);
+        
     }
     private void Update()
     {
         ChangeInput();
+        if (enableCall)
+        {
+            anim.SetBool("sing", true);
+            Sing();
+        }
+        else
+        {
+            anim.SetBool("sing", false);
+        }
     }
     private void OnMove()
     {
         if (enableMove)
         {
+            //anim.Play("Idle");
             moveInput = input.Player.Move.ReadValue<Vector2>();
             rb.velocity = new Vector2(moveInput.x * speed * Time.deltaTime, moveInput.y * speed * Time.deltaTime);
+            if(moveInput.x < 0f)
+            {
+                rb.transform.localScale = new Vector2(-1, 1);
+            }
+            else
+            {
+                rb.transform.localScale = new Vector2(1, 1);
+            }
+            anim.SetFloat("Horizontal", moveInput.x);
+            anim.SetFloat("Vertical", moveInput.y);
+            anim.SetFloat("Magnitude", moveInput.magnitude);
         }
         else
         {
+            moveInput = Vector2.zero;
             rb.velocity = Vector2.zero;
+            anim.SetFloat("Magnitude", 0);
+            
         }
     }
     
@@ -85,6 +107,29 @@ public class PlayerControl : MonoBehaviour,getDamage
         if(health < 0)
         {
             Destroy(gameObject);
+        }
+    }
+    void Sing()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            anim.SetFloat("Horizontal", 1);
+            anim.SetFloat("Vertical", 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            anim.SetFloat("Horizontal", -1);
+            anim.SetFloat("Vertical", 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            anim.SetFloat("Vertical", 1);
+            anim.SetFloat("Horizontal", 0);
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            anim.SetFloat("Vertical", -1);
+            anim.SetFloat("Horizontal", 0);
         }
     }
 }
