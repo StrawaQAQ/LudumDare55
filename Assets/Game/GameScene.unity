@@ -3310,12 +3310,12 @@ MonoBehaviour:
   camera: {fileID: 832992838}
   player: {fileID: 1229975355}
   offSet: {x: 0.42, y: 0}
-  deltaX_1: -0.03
+  deltaX_1: 0.96
   deltaX_2: 3.7
   moveSpeedX: 20
   followSmoothTime_X: 0.1
   arrivalAnchorX: 1
-  deltaY_1: -0
+  deltaY_1: 1.12
   deltaY_2: 2.17
   moveSpeedY: 20
   followSmoothTime_Y: 0.1
