@@ -8,6 +8,7 @@ public class BulletChatController : MonoBehaviour
     public static BulletChatController instance;
     public Transform contentBody,flyWordBody;
     public GameObject bulletChatPartPrefab, flyWordPrefab;
+    public AudioSource AudioSource;
   
     private void Awake()
     {
@@ -26,7 +27,14 @@ public class BulletChatController : MonoBehaviour
         a.GetComponent<BulletChatPart>().FlyBulletChat(name, word);
         GameObject b = CachePool.Instantiate(flyWordPrefab, flyWordBody);
         b.GetComponent<FlyWord>().Fly(word);
-       
+        AudioSource.Play();
+    }
+
+    public void AddBulletChat(string word)
+    {
+        GameObject b = CachePool.Instantiate(flyWordPrefab, flyWordBody);
+        b.GetComponent<FlyWord>().Fly(word);
+        AudioSource.Play();
     }
 
 
