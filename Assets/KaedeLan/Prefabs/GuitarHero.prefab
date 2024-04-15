@@ -175,7 +175,7 @@ MonoBehaviour:
   HP: 0
   _HP: 2
   pow: 1
-  speed: 0.5
+  speed: 1
   condition: 
   enemyDamage: {fileID: 0}
   hasDamage: 0

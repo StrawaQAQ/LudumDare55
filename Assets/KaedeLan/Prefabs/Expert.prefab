@@ -201,15 +201,15 @@ MonoBehaviour:
   anim: {fileID: 0}
   HP: 0
   _HP: 2
-  pow: 1
-  speed: 0.5
+  pow: 2
+  speed: 1
   condition: 
   enemyDamage: {fileID: 815697164418702492}
   hasDamage: 0
   note: {fileID: 8930042931129726581, guid: a77bfbbab48c45840b6f341e0f12ce11, type: 3}
   enemyVision: {fileID: 815697163768937687}
   audioWave: {fileID: 4367456718353604242, guid: 1e5b541213b11e942980117d3abb3e9d, type: 3}
-  stopRange: 2
+  stopRange: 4
   hitRange: {x: 4, y: 4}
   turningRight: 1
   asa: {fileID: 815697164830796707}

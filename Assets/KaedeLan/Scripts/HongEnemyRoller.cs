@@ -23,7 +23,8 @@ public class HongEnemyRoller : MonoBehaviour
             {
                 Debug.Log("aaaaa");
                 int ran = Random.Range(0,length);
-                Instantiate(enemy[ran], transform.position, transform.rotation);
+                Vector2 aaaa = new Vector2(transform.position.x+Random.Range(-2f,2f),transform.position.y+Random.Range(-2f,2f));
+                Instantiate(enemy[ran], new Vector3(aaaa.x, aaaa.y,transform.position.z), transform.rotation);
                 switch(ran)
                 {
                     case 0:{BulletChatController.instance.AddBulletChat("<color=#ff0000>MyGiegieNO1</color>", "<color=#ff0000>You're not a good singer!</color>");}break;
@@ -31,7 +32,7 @@ public class HongEnemyRoller : MonoBehaviour
                     case 2:{BulletChatController.instance.AddBulletChat("<color=#ff0000>GuitarHero</color>", "<color=#ff0000>Can you keep up with my music?</color>");}break;
                     case 3:{BulletChatController.instance.AddBulletChat("<color=#ff0000>MySongNO1</color>", "<color=#ff0000>I want to sing with you...</color>");}break;
                 }
-                Instantiate(VFX, new Vector2(transform.position.x, transform.position.y-1.29f), transform.rotation);
+                Instantiate(VFX, new Vector2(aaaa.x, aaaa.y-1.29f), transform.rotation);
                 CD = _CD;
             }else{
                 CD -= Time.fixedDeltaTime;

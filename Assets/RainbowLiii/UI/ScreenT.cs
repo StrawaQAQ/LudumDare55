@@ -8,4 +8,9 @@ public class ScreenT : MonoBehaviour
     {
         Screen.SetResolution(Screen.width, (int)(Screen.width / 1920f * 1080), true);
     }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape)) {Application.Quit();}
+    }
 }

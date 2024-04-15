@@ -19543,7 +19543,7 @@ MonoBehaviour:
   damage: 1
   hitPlayer: 0
   k: 0
-  pow: 1
+  pow: 2
 --- !u!82 &211848542239969706
 AudioSource:
   m_ObjectHideFlags: 0

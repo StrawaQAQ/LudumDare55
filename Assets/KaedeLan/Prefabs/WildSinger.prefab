@@ -109,7 +109,7 @@ MonoBehaviour:
   HP: 0
   _HP: 2
   pow: 1
-  speed: 3
+  speed: 1
   condition: 
   enemyDamage: {fileID: 3491999778218420546}
   hasDamage: 1
