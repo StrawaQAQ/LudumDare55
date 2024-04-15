@@ -24,6 +24,9 @@ public class PlayerControl : MonoBehaviour,getDamage
     public int damage;
     public float MaxTime;
     public Vector2 attackRange;
+    public GameObject BF;
+    private BuffSystem bf;
+    public GameObject VFX;
     void Start()
     {
         input = new PlayerInput();
@@ -32,14 +35,14 @@ public class PlayerControl : MonoBehaviour,getDamage
         anim = GetComponent<Animator>();
         Kl = kl.GetComponent<KeyboradListen>();
         cap = GetComponent<CapsuleCollider2D>();
+        bf = BF.GetComponent<BuffSystem>();
         enableMove = true;
         enableCall = false;
-        attackRange = new Vector2(4f, 2f);
+        attackRange = new Vector2(0.5f, 0.25f);
     }
     void FixedUpdate()
     {
         OnMove();
-        
         
     }
     private void Update()
@@ -53,6 +56,14 @@ public class PlayerControl : MonoBehaviour,getDamage
         else
         {
             anim.SetBool("sing", false);
+        }
+        if (bf.enableIn)
+        {
+            VFX.SetActive(true);
+        }
+        else
+        {
+            VFX.SetActive(false);
         }
     }
     private void OnMove()
@@ -104,7 +115,7 @@ public class PlayerControl : MonoBehaviour,getDamage
     public void TakeDamage(int damage)
     {
         health -= damage;
-        if(health < 0)
+        if(health <= 0)
         {
             Destroy(gameObject);
         }
