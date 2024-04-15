@@ -115,8 +115,11 @@ public class PlayerControl : MonoBehaviour,getDamage
     public void TakeDamage(int damage)
     {
         health -= damage;
+        anim.SetBool("damage", true);
         if(health <= 0)
         {
+            rb.bodyType = RigidbodyType2D.Static;
+            anim.SetBool("die", true);
             Destroy(gameObject);
         }
     }
@@ -149,5 +152,9 @@ public class PlayerControl : MonoBehaviour,getDamage
     public void CollectPlay()
     {
         collect.Play();
+    }
+    void end()
+    {
+        anim.SetBool("damage", false);
     }
 }
