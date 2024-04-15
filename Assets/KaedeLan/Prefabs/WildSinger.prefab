@@ -108,7 +108,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   HP: 0
   _HP: 2
-  pow: 0
+  pow: 1
   speed: 3
   condition: 
   enemyDamage: {fileID: 3491999778218420546}

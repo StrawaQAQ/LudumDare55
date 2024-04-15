@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3561823613045670938}
   - component: {fileID: 3561823613045670942}
   - component: {fileID: 3561823613045670941}
+  - component: {fileID: 196861811558871072}
   m_Layer: 0
   m_Name: SignalWave
   m_TagString: Untagged
@@ -4841,7 +4842,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 918939347
-  m_SortingLayer: 1
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4909,3 +4910,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &196861811558871072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3561823613045670936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314e1733d2aa0c942b21fff1d653984f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magicButton: 0
+  debugMode: 0
+  audioWave: {fileID: 6957031443120473030, guid: 6d5553c241e54ab43abbf61eba52cd25, type: 3}
+  coll: {fileID: 3561823613045670942}
+  damage: 1
+  hitPlayer: 0
+  k: 0
+  pow: 1
