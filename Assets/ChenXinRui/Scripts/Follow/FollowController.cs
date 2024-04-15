@@ -39,7 +39,7 @@ public class FollowController : MonoBehaviour
         index++;
     }
 
-    private void UpdateRank(int index_)
+    public void UpdateRank(int index_)
     {
        
         if (allFollower.Count > 0)
