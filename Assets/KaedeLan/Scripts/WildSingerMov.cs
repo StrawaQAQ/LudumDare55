@@ -67,6 +67,9 @@ public class WildSingerMov : AllEnemy
         {
             if(transform.position.x - player.position.x > 0.3f && turningRight == 1)  turnAround();
             else if(player.position.x - transform.position.x > 0.3f && turningRight == -1) turnAround();
+        }else{
+            if(rb.velocity.x > 0f && turningRight == -1)  turnAround();
+            else if(rb.velocity.x < 0f && turningRight == 1)  turnAround();
         }
     }
 
