@@ -24,10 +24,6 @@ public class FollowController : MonoBehaviour
         cameraSize = new CameraSize(Camera.main);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L)) AddFollower();
-    }
 
     public void AddFollower()
     {
