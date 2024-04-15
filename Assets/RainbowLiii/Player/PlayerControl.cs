@@ -7,7 +7,7 @@ public class PlayerControl : MonoBehaviour,getDamage
 {
     [HideInInspector]public Animator anim;
     [Header("����ֵ")]
-    public float health;
+    public int health;
     private Rigidbody2D rb;
     Vector2 moveInput;
     public PlayerInput input;
