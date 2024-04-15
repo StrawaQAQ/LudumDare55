@@ -172,7 +172,7 @@ public class KeyboradListen : MonoBehaviour
         if (inputSequence.SequenceEqual(correctSequence))
         {
             //Debug.Log("玩家正确地按顺序按键了！");
-            BulletChatController.instance.AddBulletChat(name, "睿睿你是大明星");
+            BulletChatController.instance.AddBulletChat("iRui", "You sing to my heart!!");
             ShowBuff();
             ResetSequence();
         }
@@ -261,6 +261,7 @@ public class KeyboradListen : MonoBehaviour
     }
     void BadBuff()
     {
+        BulletChatController.instance.AddBulletChat("Cosmo", "I think it's out of tune...");
         int rannum = Random.Range(0, 5);
         //int rannum = 3;
         if (rannum == 0)
