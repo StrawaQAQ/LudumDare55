@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -494,12 +494,12 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       "\u6311\u5254\u4E13\u5BB6_judge_19": -298286074
-      "\u6311\u5254\u4E13\u5BB6_judge_27": -862571543
       "\u6311\u5254\u4E13\u5BB6_judge_30": 1865310600
+      "\u6311\u5254\u4E13\u5BB6_judge_33": 310759942
       "\u6311\u5254\u4E13\u5BB6_judge_6": 700479911
       "\u6311\u5254\u4E13\u5BB6_judge_24": -1472869168
       "\u6311\u5254\u4E13\u5BB6_judge_11": -1755609166
-      "\u6311\u5254\u4E13\u5BB6_judge_33": 310759942
+      "\u6311\u5254\u4E13\u5BB6_judge_27": -862571543
       "\u6311\u5254\u4E13\u5BB6_judge_1": 1389702500
       "\u6311\u5254\u4E13\u5BB6_judge_12": 2107763308
       "\u6311\u5254\u4E13\u5BB6_judge_16": -1861272542
