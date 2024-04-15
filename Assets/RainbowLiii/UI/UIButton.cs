@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class test : MonoBehaviour
+public class UIButton : MonoBehaviour
 {
-    public int damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +16,16 @@ public class test : MonoBehaviour
     {
         
     }
-    public void Damage()
+    public void ToGameScene()
     {
-        GameObject.FindWithTag("Player").GetComponent<getDamage>().TakeDamage(damage);
+        SceneManager.LoadScene(2);
     }
-    public void Add()
+    public void ToTeaching()
     {
-        GameObject.FindWithTag("Player").GetComponent<PlayerControl>().getNum += 8;
+        SceneManager.LoadScene(1);
+    }
+    public void ToMain()
+    {
+        SceneManager.LoadScene(0);
     }
 }
