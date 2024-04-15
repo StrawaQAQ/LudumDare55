@@ -62,11 +62,11 @@ public class EnemyDamage : MonoBehaviour
                     Destroy(gameObject);
                 }
             }else{
-                PlayerControl b = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
-                b.attackRange = new Vector2(b.attackRange.x-0.5f, b.attackRange.y-0.25f);
                 FollowController fc = other.GetComponent<FollowController>();
-                if (fc != null && other.tag == "Player")
+                if (fc != null && other.tag == "Summon")
                 {
+                    PlayerControl b = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
+                    b.attackRange = new Vector2(b.attackRange.x-0.5f, b.attackRange.y-0.25f);
                     fc.RemoveOneFollower();
                     k ++;
                     if(magicButton) {
