@@ -2023,7 +2023,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 9.879383
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2072,8 +2072,8 @@ MonoBehaviour:
     GizmosType: 0
     point: {fileID: 1180270619}
     radius: 0
-    size: {x: 106.7, y: 50.27033}
-    offSet: {x: 8.8, y: -0.42176723}
+    size: {x: 106.21402, y: 50.27033}
+    offSet: {x: 8.5570135, y: -0.42176723}
     gizmosColor: {r: 0, g: 1, b: 0, a: 1}
   closeAuxiliaryLine: 0
   camera: {fileID: 1701373155}

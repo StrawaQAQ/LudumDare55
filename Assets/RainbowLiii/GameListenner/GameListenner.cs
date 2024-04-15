@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using System;
 using UnityEngine;
 
 public class GameListenner : MonoBehaviour
@@ -14,6 +15,10 @@ public class GameListenner : MonoBehaviour
     public float barrageTime;
     private float btwTime;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        
+    }
     void Start()
     {
         //kl = KL.GetComponent<KeyboradListen>();
