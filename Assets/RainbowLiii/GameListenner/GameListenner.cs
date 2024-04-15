@@ -17,7 +17,7 @@ public class GameListenner : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        
+        Screen.SetResolution(Screen.width, (int)(Screen.width / 1920f * 1080), true);
     }
     void Start()
     {
