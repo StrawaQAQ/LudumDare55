@@ -37,7 +37,7 @@ public class AllEnemy : MonoBehaviour
             condition = "death";
             anim.Play("Dead");
             float ranm = Random.Range(0f,1f);
-            if(ranm > 0.5f) Instantiate(note, transform);
+            if(ranm > 0.3f) Instantiate(note, transform.position,Quaternion.identity);
         }
     }
 
