@@ -51,16 +51,27 @@ public class EnemyDamage : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-            Debug.Log("哦哈哟");
+
             PlayerControl a = other.GetComponent<PlayerControl>();
             if (a != null && other.tag == "Player")
             {
-                Debug.Log("学妹");
                 a.TakeDamage(pow);
+                a.attackRange = new Vector2(a.attackRange.x-0.5f, a.attackRange.y-0.25f);
                 k ++;
                 if(magicButton) {
                     Instantiate(audioWave, transform.position, transform.rotation);
                     Destroy(gameObject);
+                }
+            }else{
+                FollowController fc = other.GetComponent<FollowController>();
+                if (fc != null && other.tag == "Player")
+                {
+                    fc.RemoveOneFollower();
+                    k ++;
+                    if(magicButton) {
+                        Instantiate(audioWave, transform.position, transform.rotation);
+                        Destroy(gameObject);
+                    }
                 }
             }
         }
