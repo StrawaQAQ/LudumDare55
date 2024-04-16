@@ -95,8 +95,8 @@ public class FollowPlayer : MonoBehaviour, getDamage
 
     public void TakeDamage(int damage)
     {
+        Debug.Log("∑¢…˙¡À∞°");
         FollowController.instance.UpdateRank(index);
-        CachePool.Destroy(gameObject);
 
     }
 }

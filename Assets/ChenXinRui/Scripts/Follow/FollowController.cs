@@ -9,9 +9,9 @@ public class FollowController : MonoBehaviour
     public GameObject follower;
     public Transform player;
     private int index = 1;
-    List<GameObject> allFollower = new();
+    public List<GameObject> allFollower = new();
 
-    public static int followCoune=>instance.allFollower.Count;
+    public static int followCount=>instance.allFollower.Count;
 
     private void Awake()
     {
@@ -31,37 +31,47 @@ public class FollowController : MonoBehaviour
         FollowPlayer a= newFollower.GetComponent<FollowPlayer>();
         newFollower.transform.position=player.position+ Quaternion.Euler(0,0,Random.Range(0,360))*Vector2.one*Mathf.Sqrt(cameraSize.size.x * cameraSize.size.x + cameraSize.size.y * cameraSize.size.y);
         allFollower.Add(newFollower);
-        a.InitData(player, index);
-        index++;
+        a.InitData(player, followCount+1);
 
     }
 
     public void UpdateRank(int index_)
     {
-       
         if (allFollower.Count > 0)
         {
-            if (index_ == allFollower.Count) allFollower.RemoveAt(index_);
+            if (index_ >= allFollower.Count-1)
+            {
+                CachePool.Destroy(allFollower[allFollower.Count - 1]);
+                allFollower.RemoveAt(allFollower.Count - 1);
+            }
             else {
                 GameObject topObj = allFollower[allFollower.Count - 1];
-                allFollower.RemoveAt(allFollower.Count);
+                CachePool.Destroy(allFollower[index_]);
+                allFollower.RemoveAt(allFollower.Count-1);
                 allFollower[index_] = topObj;
-            }
-            index--;
+                
 
-        }   
+            }
+            for(int i=1;i<=allFollower.Count ;i++ )
+            {
+                allFollower[i - 1].GetComponent<FollowPlayer>().UpdateFollowData(i);
+            }
+
+        }
 
     }
 
-    public void RemoveOneFollower()
+    public bool RemoveOneFollower()
     {
-        if(allFollower.Count > 0)
+        if (allFollower.Count > 0)
         {
-            GameObject a = allFollower[allFollower.Count];
-            allFollower.RemoveAt(allFollower.Count);
+            GameObject a = allFollower[allFollower.Count-1];
+            allFollower.RemoveAt(allFollower.Count-1);
             CachePool.Destroy(a);
+            return true;
         }
-       
+        return false;
+
     }
 
 

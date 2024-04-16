@@ -3911,6 +3911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   follower: {fileID: 2050005554171257865, guid: 1937721cdd90e1b4cb1a63969f7287b2, type: 3}
   player: {fileID: 1229975355}
+  allFollower: []
 --- !u!4 &952406947
 Transform:
   m_ObjectHideFlags: 0
@@ -4899,7 +4900,7 @@ GameObject:
   - component: {fileID: 1292443225}
   - component: {fileID: 1292443224}
   - component: {fileID: 1292443226}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: "\u663E\u793A\u5C4F"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6178,7 +6179,7 @@ GameObject:
   - component: {fileID: 1676675884}
   - component: {fileID: 1676675883}
   - component: {fileID: 1676675882}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AirWallHong (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12115,7 +12116,7 @@ GameObject:
   - component: {fileID: 2122157338599534501}
   - component: {fileID: 2122157338599534500}
   - component: {fileID: 671934719}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12232,7 +12233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2122157339124117424}
   - component: {fileID: 2122157339124117427}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Global
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12327,7 +12328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2122157340093829087}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: LIghtSystemHong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12498,7 +12499,7 @@ GameObject:
   - component: {fileID: 2122157340220022952}
   - component: {fileID: 2122157340220022951}
   - component: {fileID: 2122157340220022950}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AirWallHong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12607,7 +12608,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8551848966542956949}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: AAA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12881,7 +12882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1795427598864861679}
   - component: {fileID: 5835269874445659880}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

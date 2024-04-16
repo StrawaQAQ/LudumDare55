@@ -24,6 +24,7 @@ public class PlayerControl : MonoBehaviour,getDamage
     public int damage;
     public float MaxTime;
     public Vector2 attackRange;
+    public Vector2 attackRange_ => attackRange + new Vector2(0.1f, 0.05f) * FollowController.followCount;
     public GameObject BF;
     private BuffSystem bf;
     public GameObject VFX;
@@ -39,7 +40,6 @@ public class PlayerControl : MonoBehaviour,getDamage
         bf = BF.GetComponent<BuffSystem>();
         enableMove = true;
         enableCall = false;
-        attackRange = new Vector2(0.5f, 0.25f);
     }
     void FixedUpdate()
     {

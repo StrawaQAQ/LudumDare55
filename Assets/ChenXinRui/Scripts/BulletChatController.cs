@@ -24,7 +24,7 @@ public class BulletChatController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //followerCount.text = FollowController.followCoune.ToString();
+        followerCount.text = FollowController.followCount.ToString();
     }
 
     public void AddBulletChat(string name,string word) {

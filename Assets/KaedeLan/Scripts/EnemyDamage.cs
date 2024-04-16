@@ -42,6 +42,7 @@ public class EnemyDamage : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
+        Debug.Log(other.tag);
         if(k == 0)
         {
             if(debugMode)
@@ -51,30 +52,43 @@ public class EnemyDamage : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-
-            PlayerControl a = other.GetComponent<PlayerControl>();
-            if (a != null && other.tag == "Player")
+            if(other.TryGetComponent(out getDamage getDamage))
             {
-                a.TakeDamage(pow);
-                k ++;
-                if(magicButton) {
+                if (other.CompareTag("Player") || other.CompareTag("Summoning"))
+                {
+                    k++;
+                    getDamage.TakeDamage(pow);
+                }
+                if (magicButton)
+                {
                     Instantiate(audioWave, transform.position, transform.rotation);
                     Destroy(gameObject);
                 }
-            }else{
-                FollowController fc = other.GetComponent<FollowController>();
-                if (fc != null && other.tag == "Summon")
-                {
-                    PlayerControl b = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
-                    b.attackRange = new Vector2(b.attackRange.x-0.5f, b.attackRange.y-0.25f);
-                    fc.RemoveOneFollower();
-                    k ++;
-                    if(magicButton) {
-                        Instantiate(audioWave, transform.position, transform.rotation);
-                        Destroy(gameObject);
-                    }
-                }
             }
+
+            //PlayerControl a = other.GetComponent<PlayerControl>();
+            //if (a != null && other.tag == "Player")
+            //{
+            //    a.TakeDamage(pow);
+            //    k ++;
+            //    if(magicButton) {
+            //        Instantiate(audioWave, transform.position, transform.rotation);
+            //        Destroy(gameObject);
+            //    }
+            //}else{
+            //    FollowController fc = other.GetComponent<FollowController>();
+            //    if (fc != null && other.tag == "Summon")
+            //    {
+            //        PlayerControl b = GameObject.FindWithTag("Player").GetComponent<PlayerControl>();
+            //        //b.attackRange_ = new Vector2(b.attackRange_.x-0.5f, b.attackRange_.y-0.25f);
+            //        fc.RemoveOneFollower();
+            //        k ++;
+            //        if(magicButton) {
+            //            Instantiate(audioWave, transform.position, transform.rotation);
+            //            Destroy(gameObject);
+            //        }
+            //    }
+            //}
         }
 
     }

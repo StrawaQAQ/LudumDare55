@@ -29,7 +29,7 @@ public class PlayerAttack : MonoBehaviour
     {
         MaxTime = pc.MaxTime;
         damage = pc.damage;
-        Range = pc.attackRange;
+        Range = pc.attackRange_;
         if(esctime >= MaxTime && (MI.realVolume > 1f || Input.GetKey(KeyCode.E)))
         {
             transform.localScale = Range;
@@ -46,13 +46,17 @@ public class PlayerAttack : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        EnemyCommonDamage a = other.GetComponent<EnemyCommonDamage>();
+        //EnemyCommonDamage a = other.GetComponent<EnemyCommonDamage>();
         Debug.Log("O");
         // collision.GetComponent<EnemyCommonDamage>().TakeDamage(damage);
-        if (a != null && other.tag == "EnemyB")
+        if (other .TryGetComponent(out getDamage getDamage))
         {
-            Debug.Log("啊");
-            a.TakeDamage(damage);
+            if (!other.CompareTag("Player") && !other.CompareTag("Summoning"))
+            {
+                Debug.Log("啊");
+                getDamage.TakeDamage(damage);
+            }
+          
         }
     }
 }

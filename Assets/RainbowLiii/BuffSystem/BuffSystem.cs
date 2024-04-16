@@ -86,7 +86,7 @@ public class BuffSystem : MonoBehaviour
     public void Summoning()
     {
         BulletChatController.instance.AddBulletChat("Manager", "One  [Big Fan] enter the studio!");
-        pc.attackRange = new Vector2(pc.attackRange.x + 0.5f, pc.attackRange.y + 0.25f);
+        //pc.attackRange_ = new Vector2(pc.attackRange_.x + 0.5f, pc.attackRange_.y + 0.25f);
         Instantiate(VFXs[4], pc.transform.position, Quaternion.identity);
         FollowController.instance.AddFollower();
     }
@@ -122,22 +122,22 @@ public class BuffSystem : MonoBehaviour
         BulletChatController.instance.AddBulletChat("Manager", "One [Big Fan] leave the studio");
         Instantiate(VFXs[8], new Vector2(pc.transform.position.x, pc.transform.position.y - 1.29f), Quaternion.identity);
         GameObject[] destroyableObjects = GameObject.FindGameObjectsWithTag("Summoning");
-
-        if (destroyableObjects.Length > 0)
-        {
-            // 随机选择一个游戏对象进行销毁  
-            int randomIndex = Random.Range(0, destroyableObjects.Length);
-            pc.attackRange = new Vector2(pc.attackRange.x - 0.5f, pc.attackRange.y - 0.25f);
-            if (pc.attackRange.x <= 0 && pc.attackRange.y <= 0f)
-            {
-                pc.attackRange = new Vector2(0.5f, 0.25f);
-            }
-            Destroy(destroyableObjects[randomIndex]);
-        }
-        else
-        {
-            CallEnemy();
-        }
+        if (!FollowController.instance.RemoveOneFollower()) CallEnemy();
+        //if (destroyableObjects.Length > 0)
+        //{
+        //    // 随机选择一个游戏对象进行销毁  
+        //    int randomIndex = Random.Range(0, destroyableObjects.Length);
+        //    pc.attackRange_ = new Vector2(pc.attackRange_.x - 0.5f, pc.attackRange_.y - 0.25f);
+        //    if (pc.attackRange_.x <= 0 && pc.attackRange_.y <= 0f)
+        //    {
+        //        pc.attackRange_ = new Vector2(0.5f, 0.25f);
+        //    }
+        //    Destroy(destroyableObjects[randomIndex]);
+        //}
+        //else
+        //{
+        //    CallEnemy();
+        //}
     }
     public void CallEnemy()
     {

@@ -51,6 +51,9 @@ public class KeyboradListen : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.L)) buffSystem.Summoning();
+
+
         if (MaxKey <= 7 && !pc.enableCall)
         {
             TimeListenner();
